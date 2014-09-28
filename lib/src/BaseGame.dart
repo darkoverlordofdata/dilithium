@@ -23,7 +23,6 @@ class BaseGame extends State {
   Config config;
   Game game;
 
-
   /**
    * == New Game ==
    *   * Set the screen dimensions
@@ -35,10 +34,13 @@ class BaseGame extends State {
   BaseGame(Config this.config) {
 
     print("Base Game initialized");
-    game = new Game(800, 600, AUTO, '', this);
+    game = new Game(config.width, config.height, config.renderer, '', this);
 
   }
 
+  /**
+   *
+   */
   create() {
     game.state.add(config.boot, new Boot(this.config));
     game.state.add(config.assets, new Assets(this.config));

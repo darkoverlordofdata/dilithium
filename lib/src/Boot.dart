@@ -53,7 +53,6 @@ class Boot extends State {
    */
   create() {
 
-    print("Class Start::create");
     input.maxPointers = 1;
     stage.disableVisibilityChange = true;
 
