@@ -1,17 +1,17 @@
 /*+--------------------------------------------------------------------+
-#| lore.dart
+#| BaseGame.dart
 #+--------------------------------------------------------------------+
 #| Copyright DarkOverlordOfData (c) 2014
 #+--------------------------------------------------------------------+
 #|
-#| This file is a part of lore
+#| This file is a part of dilithium
 #|
-#| lore is free software; you can copy, modify, and distribute
+#| dilithium is free software; you can copy, modify, and distribute
 #| it under the terms of the MIT License
 #|
 #+--------------------------------------------------------------------+
 #
-# Lore
+# dilithium
 #
 #   Game Template
 */

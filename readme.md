@@ -8,4 +8,8 @@
                                                                       
 ==&lt; dilithium &gt;==
 
-Base game core for a Phaser/Dart stack
+Base game core for Phaser/Dart/Cordova stack
+
+* manage assets with yaml configuration file
+* level based life-cycle management
+
