@@ -59,6 +59,11 @@ class Config {
 
     var raw = loadYaml(source);
 
+    /** Check for the magic word... */
+    if (raw['dilithium'] != 'Li2') {
+      throw new FormatException("We got no dilithium!");
+    }
+
     this
       ..name = raw['name']
       ..minWidth = raw['minWidth']
