@@ -27,32 +27,14 @@ import 'dart:html';
 
 import "package:dilithium/dilithium.dart";
 import 'package:play_phaser/phaser.dart';
-import 'package:rikulo_gap/device.dart' as cordova;
 part 'src/Test.dart';
 part 'src/Demo.dart';
 
 void main() {
 
-  start(device) =>
-    Dilithium.using("assets").then((config) =>
-      new Test(config, device));
+  Dilithium.using("assets").then((config) =>
+    new Test(config));
 
-
-  if (context['cordova'] != null) {
-    try {
-      cordova.Device.init()
-      .then((device) => start(device))
-      .catchError((ex, st) {
-        print(ex);
-        print(st);
-        start(null);
-      });
-    }
-    catch (e) {
-      start(null);
-    }
-  }
-  else start(null);
 }
 
 

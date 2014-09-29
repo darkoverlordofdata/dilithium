@@ -1,9 +1,8 @@
 #
-# Alien Zone Configuration
+# Dilithium Configuration
 #
-dilithium: Li2
 
-name: Alien Zone
+name: Demo
 
 minWidth: 320
 minHeight: 480
@@ -29,7 +28,4 @@ levels:
 copyrightText: Copyright 2014 Dark Overlord of Data
 creditsText: |
   Program by darkoverlordofdata
-  Background Graphics - http://www.nasa.gov
-  Gems: http://opengameart.org/content/gem-tiles
-  Based on: https://github.com/hugeen/createjs_match3
 

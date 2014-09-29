@@ -12,3 +12,14 @@
 
 * manage assets with yaml configuration file
 
+```dart
+void main() {
+
+  Dilithium
+  .using("path/to/assets")
+  .then((config) => new Game(config));
+
+}
+
+```
+
