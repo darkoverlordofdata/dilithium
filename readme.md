@@ -23,3 +23,8 @@ void main() {
 
 ```
 
+* (planned) scaffold generator
+```bash
+$ li2 create path Project
+
+```
