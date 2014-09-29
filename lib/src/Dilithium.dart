@@ -26,7 +26,7 @@ class Dilithium extends State {
   Config config;
   Game game;
 
-  static async.Future use(String path) {
+  static async.Future using(String path) {
     async.Completer completer = new async.Completer();
     HttpRequest.getString("$path/config.li2")
     .then((String source) {

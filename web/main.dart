@@ -34,7 +34,7 @@ part 'src/Demo.dart';
 void main() {
 
   start(device) =>
-    Dilithium.use("assets").then((config) =>
+    Dilithium.using("assets").then((config) =>
       new Test(config, device));
 
 
