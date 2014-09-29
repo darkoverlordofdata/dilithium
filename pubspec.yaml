@@ -1,7 +1,7 @@
 name: dilithium
 version: 0.0.1
 description:
-  Core game functionality for phaser.io
+  A warp core for phaser
 author: brucedavidson <darkoverlordofdata@gmail.com>
 homepage: http://darkoverlordofdata.com
 dependencies:

@@ -8,7 +8,7 @@
                                                                       
 ==&lt; dilithium &gt;==
 
-Base game core for Phaser/Dart/Cordova stack
+'Cause Every Phaser Needs A Warp Core'
 
 * manage assets with yaml configuration file
 
