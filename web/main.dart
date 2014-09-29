@@ -34,7 +34,8 @@ part 'src/Demo.dart';
 void main() {
 
   start(device) =>
-    Dilithium.launch("assets", (config) => new Test(config, device));
+    Dilithium.use("assets").then((config) =>
+      new Test(config, device));
 
 
   if (context['cordova'] != null) {

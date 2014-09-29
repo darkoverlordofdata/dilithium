@@ -4,8 +4,7 @@ class Test extends Dilithium {
 
   cordova.Device device;
 
-  Test(config, this.device) : super(config) {
-  }
+  Test(config, this.device) : super(config);
 
   create() {
     super.create();
