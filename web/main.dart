@@ -33,29 +33,25 @@ part 'src/Demo.dart';
 
 void main() {
 
-  String path = "config.li2";
-
-  start(path, device) =>
-    HttpRequest.getString(path)
-      .then((String source) =>
-        new Test(new Config(source), device));
+  start(device) =>
+    Dilithium.launch("assets", (config) => new Test(config, device));
 
 
   if (context['cordova'] != null) {
     try {
       cordova.Device.init()
-      .then((device) => start(path, device))
+      .then((device) => start(device))
       .catchError((ex, st) {
         print(ex);
         print(st);
-        start(path, null);
+        start(null);
       });
     }
     catch (e) {
-      start(path, null);
+      start(null);
     }
   }
-  else start(path, null);
+  else start(null);
 }
 
 

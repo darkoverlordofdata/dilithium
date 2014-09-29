@@ -1,6 +1,6 @@
 part of example;
 
-class Test extends BaseGame {
+class Test extends Dilithium {
 
   cordova.Device device;
 

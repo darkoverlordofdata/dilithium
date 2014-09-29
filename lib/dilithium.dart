@@ -32,6 +32,6 @@ import 'package:yaml/yaml.dart';
 import 'package:play_phaser/phaser.dart';
 
 part 'src/Config.dart';
-part 'src/BaseGame.dart';
+part 'src/Dilithium.dart';
 part 'src/Boot.dart';
 part 'src/Assets.dart';

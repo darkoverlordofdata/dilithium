@@ -17,12 +17,20 @@
 */
 part of dilithium;
 
-class BaseGame extends State {
+typedef void Next(Config config);
+
+
+class Dilithium extends State {
 
   String path;
   Config config;
   Game game;
 
+  static launch(String path, Next callback) {
+    HttpRequest.getString("$path/config.li2")
+    .then((String source) => callback(new Config(source)));
+
+  }
   /**
    * == New Game ==
    *   * Set the screen dimensions
@@ -31,7 +39,7 @@ class BaseGame extends State {
    *
    * returns this
    */
-  BaseGame(Config this.config) {
+  Dilithium(Config this.config) {
 
     print("Base Game initialized");
     game = new Game(config.width, config.height, config.renderer, '', this);
