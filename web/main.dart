@@ -33,7 +33,7 @@ part 'src/Demo.dart';
 
 void main() {
 
-  String path = "config.yaml";
+  String path = "config.li2";
 
   start(path, device) =>
     HttpRequest.getString(path)
