@@ -1,4 +1,11 @@
 /*
+           ___ ___ __  __    _
+      ____/ (_) (_) /_/ /_  (_)_  ______ ___
+     / __  / / / / __/ __ \/ / / / / __ `__ \
+    / /_/ / / / / /_/ / / / / /_/ / / / / / /
+    \__,_/_/_/_/\__/_/ /_/_/\__,_/_/ /_/ /_/
+
+
 Copyright (c) 2014 Bruce Davidson <darkoverlordofdata@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
