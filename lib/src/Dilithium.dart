@@ -30,17 +30,12 @@ class Dilithium extends State {
     async.Completer completer = new async.Completer();
     HttpRequest.getString("$path/config.li2")
     .then((String source) {
-      completer.complete(new Config(source));
+      completer.complete(new Config(source, path));
     });
     return completer.future;
 
   }
 
-//  static launch(String path, Next callback) {
-//    HttpRequest.getString("$path/config.li2")
-//    .then((String source) => callback(new Config(source)));
-//
-//  }
   /**
    * == New Game ==
    *   * Set the screen dimensions

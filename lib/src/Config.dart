@@ -17,7 +17,7 @@ part of dilithium;
 
 class Config {
 
-
+  String path = "";
   String name = "name";
   String boot = "__boot";
   String assets = "__assets";
@@ -53,9 +53,19 @@ class Config {
   String source;
   cordova.Device device;
 
-  Config(String this.source) {
+  /**
+   * Load configuration
+   *
+   * @param source  yaml configuration string
+   * @param path    base asset path
+   */
+  Config(String this.source, String this.path) {
 
     print("Class Config initialized");
+
+    if (path != "")
+      if (!path.endsWith("/"))
+        path += "/";
 
     var raw = loadYaml(source);
 

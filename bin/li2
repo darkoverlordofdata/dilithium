@@ -1,0 +1,38 @@
+#!/usr/bin/env dart
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:args/args.dart';
+ArgResults argResults;
+
+/**
+ * li2 create path Project
+ *
+ * create Project at path:
+ *
+ *  .gitignore
+ *  license.md
+ *  pubspec.yaml
+ *  readme.md
+ *  lib/project.dart
+ *  lib/src/Project.dart
+ *  lib/src/Main.dart
+ *  web/index.html
+ *  web/main.dart
+ *  web/assets/config.li2
+ *  web/css/
+ *
+ *
+ */
+void main(List<String> arguments) {
+  final parser = new ArgParser();
+  final create = new ArgParser();
+  parser.addCommand('create', create);
+  argResults = parser.parse(arguments);
+  String name = argResults.command.name;
+  List<String> args = argResults.command.rest;
+  print("command = '$name' ${args[0]} ${args[1]}");
+
+
+}

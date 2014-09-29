@@ -37,10 +37,10 @@ class Boot extends State {
    */
   preload() {
 
-    load.image(config.splashKey, config.splashImg);
+    load.image(config.splashKey, config.path+config.splashImg);
     if (config.showPreloadBar) {
-      load.image(config.preloadBarKey, config.preloadBarImg);
-      load.image(config.preloadBgdKey, config.preloadBgdImg);
+      load.image(config.preloadBarKey, config.path+config.preloadBarImg);
+      load.image(config.preloadBgdKey, config.path+config.preloadBgdImg);
     }
 
 

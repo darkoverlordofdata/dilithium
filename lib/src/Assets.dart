@@ -51,14 +51,14 @@ class Assets extends State {
 
     //  load images
     if (config.images != null) {
-      config.images.forEach((k, v) => load.image(k,v));
+      config.images.forEach((k, v) => load.image(k, config.path+v));
     }
 
     // load level tilesets
     if (config.levels != null) {
       config.levels.forEach((k, level) {
         var levelName = level['options']['map'];
-        load.tilemap(levelName, "assets/levels/$levelName.json", null, Tilemap.TILED_JSON);
+        load.tilemap(levelName, config.path+"levels/$levelName.json", null, Tilemap.TILED_JSON);
       });
     }
 

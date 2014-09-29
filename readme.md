@@ -16,7 +16,7 @@
 void main() {
 
   Dilithium
-  .using("path/to/assets")
+  .using("packages/appname")
   .then((config) => new Game(config));
 
 }
