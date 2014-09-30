@@ -1,12 +1,4 @@
-#!/usr/bin/env coffee
-###
-           ___ ___ __  __    _
-      ____/ (_) (_) /_/ /_  (_)_  ______ ___
-     / __  / / / / __/ __ \/ / / / / __ `__ \
-    / /_/ / / / / /_/ / / / / /_/ / / / / / /
-    \__,_/_/_/_/\__/_/ /_/_/\__,_/_/ /_/ /_/
-
-
+/*
 Copyright (c) 2014 Bruce Davidson <darkoverlordofdata@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
@@ -27,33 +19,23 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-###
-dilithium = require("./lib/dilithium")
+*/
 
-$usage = """
-Usage:
-  li2 create PATH [project -t name | <path>]
+library example;
+import 'dart:js';
+import 'dart:html';
 
-  cd PATH
-  pub build
+import "package:dilithium/dilithium.dart";
+import 'package:play_phaser/phaser.dart';
+part 'src/Test.dart';
+part 'src/Demo.dart';
 
-Options:
-  -h  [--help]      # display this message
-  -t  [--template]  # new project template, defaults to 'default'
-  -v  [--version]   # display version
+void main() {
+
+  Dilithium.using("assets").then((config) =>
+    new Test(config));
+
+}
 
 
-"""
-switch process.argv[2]
 
-  when 'create' then dilithium.create process.argv.slice(3)...
-
-  when '--version' then console.log "li2 v"+require('../package.json').version
-
-  when '-v' then console.log "li2 v"+require('../package.json').version
-
-  when '--help' then console.log $usage
-
-  when '-h' then console.log $usage
-
-  else console.log $usage

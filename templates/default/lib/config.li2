@@ -1,0 +1,43 @@
+#+--------------------------------------------------------------------+
+#| config.li2
+#+--------------------------------------------------------------------+
+#| Copyright DarkOverlordOfData (c) 2014
+#+--------------------------------------------------------------------+
+#|
+#| This file is a part of alienzone
+#|
+#| alienzone is free software; you can copy, modify, and distribute
+#| it under the terms of the {{ project.license }}
+#|
+#+--------------------------------------------------------------------+
+#
+# {{ project.name }} Dilithium(Li2) Configuration
+#
+#
+name: {{ project.name }}
+
+minWidth: 320
+minHeight: 480
+maxWidth: 640
+maxHeight: 960
+pageAlignHorizontally: true
+pageAlignVertically: true
+forceOrientation: false
+
+splashKey: splashScreen
+splashImg: images/splash.png
+
+showPreloadBar: false
+preloadBarKey: preloadBar
+preloadBarImg: 
+preloadBgdKey: preloadBgd
+preloadBgdImg: 
+
+images:
+
+copyrightText: Copyright 2014 Dark Overlord of Data
+creditsText: |
+  Program by darkoverlordofdata
+
+sprite:
+levels:

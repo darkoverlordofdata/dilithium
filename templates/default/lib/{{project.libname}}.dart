@@ -1,5 +1,4 @@
-#!/usr/bin/env coffee
-###
+/*
            ___ ___ __  __    _
       ____/ (_) (_) /_/ /_  (_)_  ______ ___
      / __  / / / / __/ __ \/ / / / / __ `__ \
@@ -27,33 +26,18 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-###
-dilithium = require("./lib/dilithium")
+*/
 
-$usage = """
-Usage:
-  li2 create PATH [project -t name | <path>]
+library {{ project.libname }};
 
-  cd PATH
-  pub build
+import 'dart:html';
+import 'dart:math';
+import 'dart:js';
+import 'dart:async' as async;
 
-Options:
-  -h  [--help]      # display this message
-  -t  [--template]  # new project template, defaults to 'default'
-  -v  [--version]   # display version
+import 'package:yaml/yaml.dart';
+import 'package:rikulo_gap/device.dart' as cordova;
+import 'package:play_phaser/phaser.dart';
+import "package:dilithium/dilithium.dart";
 
-
-"""
-switch process.argv[2]
-
-  when 'create' then dilithium.create process.argv.slice(3)...
-
-  when '--version' then console.log "li2 v"+require('../package.json').version
-
-  when '-v' then console.log "li2 v"+require('../package.json').version
-
-  when '--help' then console.log $usage
-
-  when '-h' then console.log $usage
-
-  else console.log $usage
+part 'src/{{ project.name }}.dart';
