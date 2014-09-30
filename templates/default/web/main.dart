@@ -21,21 +21,8 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-library example;
-import 'dart:js';
-import 'dart:html';
-
-import "package:dilithium/dilithium.dart";
-import 'package:play_phaser/phaser.dart';
-part 'src/Test.dart';
-part 'src/Demo.dart';
+import "package:{{ project.libname }}/{{ project.libname }}.dart" as {{ project.libname }} show start;
 
 void main() {
-
-  Dilithium.using("assets").then((config) =>
-    new Test(config));
-
+  {{ project.libname }}.start();
 }
-
-
-
