@@ -27,6 +27,11 @@ LocalFileSystem = require('./classes/LocalFileSystem')
 sources = ['.html', '.xml', '.md', '.markdown', '.yaml', '.dart', '.li2', '.gitignore', '.css']
 
 #
+# executable - list of file extension executables
+#
+executable = ['.coffee', '.js']
+
+#
 # variables - table of variables to replace in templates
 #
 variables =
@@ -92,8 +97,8 @@ copydir = (tmppath, newpath) ->
 
     newname = Liquid.Template.parse(tmpname).render(project: variables)
 
-    tmp_file = path.resolve(tmppath, tmpname)
-    new_file = path.resolve(newpath, newname)
+    tmp_file = path.join(tmppath, tmpname)
+    new_file = path.join(newpath, newname)
 
     if fs.statSync(tmp_file).isDirectory()
 
@@ -121,24 +126,26 @@ liquidInitialization = (ctx) ->
   #
   # Template include folder
   #
-  Liquid.Template.fileSystem = new LocalFileSystem(path.resolve(__dirname, "/includes"))
+  Liquid.Template.fileSystem = new LocalFileSystem(path.join(__dirname, "/includes"))
 
   #
   # Custom Filters
   #
-  Liquid.Template.registerFilter require(path.resolve(__dirname, "filters.coffee"))
+  Liquid.Template.registerFilter require(path.join(__dirname, "filters.coffee"))
 
   #
   # Custom Tags
   #
-  for tag_name in fs.readdirSync(path.resolve(__dirname, "/tags"))
-    require(path.resolve(__dirname, "/tags/", tag_name))(ctx)
+  for tag_name in fs.readdirSync(path.join(__dirname, "/tags"))
+    if path.extname(tag_name) in executable
+      require(path.join(__dirname, "/tags/", tag_name))(ctx)
 
   #
   # Plugins
   #
   require(plugin)(ctx) for plugin in plugins
-  if fs.existsSync(path.resolve(__dirname, "/plugins"))
-    for plugin in fs.readdirSync(path.resolve(__dirname, "/plugins"))
-      require(path.resolve(__dirname, "/plugins/", plugin))(ctx)
+  if fs.existsSync(path.join(__dirname, "/plugins"))
+    for plugin in fs.readdirSync(path.join(__dirname, "/plugins"))
+      if path.extname(tag_name) in executable
+        require(path.join(__dirname, "/plugins/", plugin))(ctx)
 

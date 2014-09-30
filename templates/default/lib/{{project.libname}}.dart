@@ -40,4 +40,10 @@ import 'package:rikulo_gap/device.dart' as cordova;
 import 'package:play_phaser/phaser.dart';
 import "package:dilithium/dilithium.dart";
 
+part 'src/Credits.dart';
+part 'src/GameOver.dart';
+part 'src/Levels.dart';
+part 'src/Main.dart';
+part 'src/Menu.dart';
+part 'src/Scores.dart';
 part 'src/{{ project.name }}.dart';

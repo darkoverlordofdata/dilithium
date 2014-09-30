@@ -1,6 +1,6 @@
 /**
  +--------------------------------------------------------------------+
- | Credits.dart
+ | {{ project.name }}.dart
  +--------------------------------------------------------------------+
  | Copyright DarkOverlordOfData (c) 2014
  +--------------------------------------------------------------------+
@@ -31,22 +31,21 @@ class {{ project.name }}  extends Dilithium {
    *
    * returns this
    */
-  {{ project.name }}(config, cordova.Device device): super(config) {
+  {{ project.name }}(config, this.device): super(config) {
 
-    this.device = device;
     print("Class {{ project.name }} initialized");
   }
 
   create() {
 
-  super.create();
-  game.state
-    ..add(config.menu,  new Menu(config))
-    ..add('Levels',     new Levels(config))
-    ..add('Credits',    new Credits(config))
-    ..add('Scores',     new Scores(config))
-    ..add('GameOver',   new GameOver(config))
-    ..start(config.boot);
+    super.create();
+    game.state
+      ..add(config.menu,  new Menu(config))
+      ..add('Levels',     new Levels(config))
+      ..add('Credits',    new Credits(config))
+      ..add('Scores',     new Scores(config))
+      ..add('GameOver',   new GameOver(config))
+      ..start(config.boot);
 
   }
 
