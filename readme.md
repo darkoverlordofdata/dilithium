@@ -19,13 +19,26 @@ $ sudo npm install dilithium -g
 
 ```
 
-## Use 
-
 ### dart project scaffold generator
-```bash
-$ li2 create path Project --template default
 
-```
+Use Liquid templates to generate projects
+
+    Usage:
+      li2 create PATH [-t name | <path>]
+      cd PATH
+      pub build
+    
+    Options:
+      -h  [--help]        # display this message
+      -t  [--template]    # new project template, defaults to 'default'
+      -v  [--version]     # display version
+      -a  [--author]      # set author
+      -d  [--description] # set description
+      -l  [--license]     # set license text
+      -w  [--webpage]     # set home page
+
+
+
 
 ### manage phaser assets with yaml configuration file
 

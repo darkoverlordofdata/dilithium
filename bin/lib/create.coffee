@@ -32,16 +32,18 @@ sources = ['.html', '.xml', '.md', '.markdown', '.yaml', '.dart', '.li2', '.giti
 variables =
   name          : ""
   libname       : ""
-  license       : "MIT License"
   description   : ""
   author        : ""
   homepage      : ""
+  license       : "MIT License"
   template      : "default"
 
 #
 # plugins - table of liquid plugins installed from npm
 #
 plugins = {}
+
+ucfirst = (s) -> s.charAt(0).toUpperCase() + s.substr(1)
 
 module.exports =
 #
@@ -53,7 +55,7 @@ module.exports =
 #
   run: (name, args...) ->
 
-    variables.name = name.replace(/\s/g, "")
+    variables.name = ucfirst(name.replace(/\s/g, ""))
     variables.libname = name.replace(/\s/g, "").toLocaleLowerCase()
     variables.description = name
 

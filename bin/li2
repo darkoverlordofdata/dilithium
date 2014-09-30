@@ -33,7 +33,6 @@ dilithium = require("./lib/dilithium")
 $usage = """
 Usage:
   li2 create PATH [project -t name | <path>]
-
   cd PATH
   pub build
 
@@ -45,19 +44,17 @@ Options:
   -d  [--description] # set description
   -l  [--license]     # set license text
   -w  [--webpage]     # set home page
-
-
 """
 switch process.argv[2]
 
-  when 'create' then dilithium.create process.argv.slice(3)...
+  when 'create'     then dilithium.create process.argv.slice(3)...
 
-  when '--version' then console.log "li2 v"+require('../package.json').version
+  when '--version'  then console.log "li2 v"+require('../package.json').version
 
-  when '-v' then console.log "li2 v"+require('../package.json').version
+  when '-v'         then console.log "li2 v"+require('../package.json').version
 
-  when '--help' then console.log $usage
+  when '--help'     then console.log $usage
 
-  when '-h' then console.log $usage
+  when '-h'         then console.log $usage
 
   else console.log $usage
