@@ -38,9 +38,13 @@ Usage:
   pub build
 
 Options:
-  -h  [--help]      # display this message
-  -t  [--template]  # new project template, defaults to 'default'
-  -v  [--version]   # display version
+  -h  [--help]        # display this message
+  -t  [--template]    # new project template, defaults to 'default'
+  -v  [--version]     # display version
+  -a  [--author]      # set author
+  -d  [--description] # set description
+  -l  [--license]     # set license text
+  -w  [--webpage]     # set home page
 
 
 """

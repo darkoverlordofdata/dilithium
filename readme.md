@@ -10,7 +10,24 @@
 
 'Cause Every Phaser Needs A Warp Core'
 
-* manage assets with yaml configuration file
+# Quickstart
+
+## Install
+
+```bash
+$ sudo npm install dilithium -g
+
+```
+
+## Use 
+
+### dart project scaffold generator
+```bash
+$ li2 create path Project --template default
+
+```
+
+### manage phaser assets with yaml configuration file
 
 ```dart
 void main() {
@@ -23,8 +40,3 @@ void main() {
 
 ```
 
-* scaffold generator
-```bash
-$ li2 create path Project --template default
-
-```
