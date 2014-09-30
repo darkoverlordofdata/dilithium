@@ -6,10 +6,10 @@ author: brucedavidson <darkoverlordofdata@gmail.com>
 homepage: http://darkoverlordofdata.com
 dependencies:
   browser: ">=0.10.0+2 <0.11.0"
-  args: any
+  args: ">=0.12.0+2 <0.13.0"
   yaml: ">=2.0.1+1 <3.0.0"
-  play_phaser: any
-  play_pixi: any
+  play_phaser: ">=0.10.3+1 <0.11.0"
+  play_pixi: ">=0.10.3 <0.11.0"
 
 transformers:
 - $dart2js:

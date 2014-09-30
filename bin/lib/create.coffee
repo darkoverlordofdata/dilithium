@@ -21,9 +21,15 @@ path = require('path')
 Liquid = require('huginn-liquid')
 LocalFileSystem = require('./classes/LocalFileSystem')
 
+#
+# sources - list of file extensions treated as templates
+#
 sources = ['.html', '.xml', '.md', '.markdown', '.yaml', '.dart', '.li2', '.gitignore', '.css']
 
-vars =
+#
+# variables - table of variables to replace in templates
+#
+variables =
   name          : ""
   libname       : ""
   license       : "MIT License"
@@ -32,86 +38,105 @@ vars =
   homepage      : ""
   template      : "default"
 
-module.exports = create =
+#
+# plugins - table of liquid plugins installed from npm
+#
+plugins = {}
+
+module.exports =
 #
 # create a new project scaffold in cwd
 #
 # @param  [String]  appname app to create
+# @param  [Array]   remaining arguments
 # @return none
 #
   run: (name, args...) ->
 
-    #
-    #   Initialize Liquid
-    #
-    Liquid.Template.fileSystem = new LocalFileSystem(path.resolve(__dirname, "/includes"))
-    Liquid.Template.registerFilter require(path.resolve(__dirname, "filters.coffee"))
-
-    vars.name = name.replace(/\s/g, "")
-    vars.libname = name.replace(/\s/g, "").toLocaleLowerCase()
-    vars.description = name
-
-    newpath = path.resolve(process.cwd(), vars.libname)
+    variables.name = name.replace(/\s/g, "")
+    variables.libname = name.replace(/\s/g, "").toLocaleLowerCase()
+    variables.description = name
 
     if args.length>0
-
       while (option = args.shift())?
-
         switch option
 
-          when '-t', '--template'
-            vars.template = args.shift()
+          when '-t', '--template'     then variables.template     = args.shift()
+          when '-l', '--license'      then variables.license      = args.shift()
+          when '-a', '--author'       then variables.author       = args.shift()
+          when '-w', '--webpage'      then variables.homepage     = args.shift()
+          when '-d', '--description'  then variables.description  = args.shift()
 
-          when '-l', '--license'
-            vars.license = args.shift()
+          else throw "ERR: Invalid option #{option}"
 
-          when '-a', '--author'
-            vars.author = args.shift()
+    liquidInitialization exports
+    newpath = path.resolve(process.cwd(), variables.libname)
+    tmppath = path.resolve(__dirname, "../../templates", variables.template)
+    copydir tmppath, newpath
+    console.log "Created #{variables.name} at #{newpath} from #{tmppath}..."
 
-          when '-w', '--webpage'
-            vars.homepage = args.shift()
+#
+# recursively copy and transform template folders
+#
+copydir = (tmppath, newpath) ->
 
-          when '-d', '--description'
-            vars.description = args.shift()
+  console.log newpath
+  #
+  # generate output
+  #
+  fs.mkdirSync newpath unless fs.existsSync(newpath)
 
-          else
-            throw "ERR: Invalid option #{option}"
+  for tmpname in fs.readdirSync(tmppath)
 
-    tmppath = path.resolve(__dirname, "../../templates", vars.template)
+    newname = Liquid.Template.parse(tmpname).render(project: variables)
 
-    console.log "Creating #{vars.name} at #{newpath} from #{tmppath}..."
+    tmp_file = path.resolve(tmppath, tmpname)
+    new_file = path.resolve(newpath, newname)
 
-    create.copydir tmppath, newpath
+    if fs.statSync(tmp_file).isDirectory()
 
-  copydir: (tmppath, newpath) ->
+      copydir tmp_file, new_file
 
-    console.log newpath
-    #
-    # generate output
-    #
-    fs.mkdirSync newpath unless fs.existsSync(newpath)
+    else
 
-    for tmpname in fs.readdirSync(tmppath)
-      stats = fs.statSync(path.resolve(tmppath, tmpname))
-      if stats.isDirectory()
-        create.copydir path.resolve(tmppath, tmpname), path.resolve(newpath, tmpname)
+      if path.extname(tmp_file) in sources
+
+        buf = String(fs.readFileSync(tmp_file))
+        buf = Liquid.Template.parse(buf).render(project: variables)
+        fs.writeFileSync new_file, buf
 
       else
-        newname = Liquid.Template.parse(tmpname).render(project: vars)
 
-        #console.log "copy "+path.resolve(tmppath, tmpname)+" to "+path.resolve(newpath, newname)
-
-        if path.extname(tmpname) in sources
-
-          buf = String(fs.readFileSync(path.resolve(tmppath, tmpname)))
-          buf = Liquid.Template.parse(buf).render(project: vars)
-          fs.writeFileSync path.resolve(newpath, newname), buf
-
-        else
-
-          bin = fs.createWriteStream(path.resolve(newpath, newname))
-          bin.write fs.readFileSync(path.resolve(tmppath, tmpname))
-          bin.end()
+        bin = fs.createWriteStream(new_file)
+        bin.write fs.readFileSync(tmp_file)
+        bin.end()
 
 
+#
+# Initialize Liquid
+#
+liquidInitialization = (ctx) ->
+  #
+  # Template include folder
+  #
+  Liquid.Template.fileSystem = new LocalFileSystem(path.resolve(__dirname, "/includes"))
+
+  #
+  # Custom Filters
+  #
+  Liquid.Template.registerFilter require(path.resolve(__dirname, "filters.coffee"))
+
+  #
+  # Custom Tags
+  #
+  for tag_name in fs.readdirSync(path.resolve(__dirname, "/tags"))
+    require(path.resolve(__dirname, "/tags/", tag_name))(ctx)
+
+  #
+  # Plugins
+  #
+  require(plugin)(ctx) for plugin in plugins
+  if fs.existsSync(path.resolve(__dirname, "/plugins"))
+    for plugin in fs.readdirSync(path.resolve(__dirname, "/plugins"))
+      require(path.resolve(__dirname, "/plugins/", plugin))(ctx)
 
