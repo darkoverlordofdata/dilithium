@@ -155,11 +155,11 @@ liquidInitialization = (ctx) ->
 pascalCase = (str) ->
 
   res = ''
-  for s in str.split(/\s*/)
-    res += s.charAt(0).toUpperCase() + s.substr(1)
+  for s in str.split(/\s+/)
+    res += (s.charAt(0).toUpperCase() + s.substr(1))
   return res
 
 #
 # Project Name  => project_name
 #
-snakeCase = (str) -> str.replace(/\s*/, '_').toLowerCase()
+snakeCase = (str) -> str.replace(/\s+/g, '_').toLowerCase()
