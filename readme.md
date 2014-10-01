@@ -53,4 +53,21 @@ class App extends Dilithium {
 
 
 
+### What Next?
+
+Copy /usr/lib/node_modules/dilithium/templates/default somewhere, and make your own template.
+Use flag --template path/to/template to specify your custom template.
+
+Templates use Liquid syntax. The following variables are available:
+
+* project.name
+* project.libname
+* project.description
+* project.author
+* project.homepage
+* project.license
+  
+Templates can be used in path names. For example:
+
+    In a project named 'Demo', a template file named {{project.name}}.dart is transformed into Demo.dart
 

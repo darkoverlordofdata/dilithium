@@ -57,7 +57,13 @@ class Dilithium extends State {
   create() {
     game.state.add(config.boot, new Boot(this.config));
     game.state.add(config.assets, new Assets(this.config));
+    game.state.add(config.menu, levels());
+    game.state.start(config.boot);
+
   }
+
+  State levels(); // override to define game states
+
 }
 
 

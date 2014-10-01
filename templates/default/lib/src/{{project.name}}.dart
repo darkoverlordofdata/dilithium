@@ -36,17 +36,20 @@ class {{ project.name }}  extends Dilithium {
     print("Class {{ project.name }} initialized");
   }
 
-  create() {
+  /**
+   * Define each of the game states
+   */
+  State levels() {
 
-    super.create();
     game.state
-      ..add(config.menu,  new Menu(config))
       ..add('Levels',     new Levels(config))
       ..add('Credits',    new Credits(config))
       ..add('Scores',     new Scores(config))
-      ..add('GameOver',   new GameOver(config))
-      ..start(config.boot);
+      ..add('GameOver',   new GameOver(config));
+
+    return new Menu(config);
 
   }
+
 
 }
