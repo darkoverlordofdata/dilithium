@@ -60,7 +60,7 @@ Use flag --template path/to/template to specify your custom template.
 
 Templates use Liquid syntax. The following variables are available:
 
-* project.name
+* project.name          
 * project.libname
 * project.description
 * project.author

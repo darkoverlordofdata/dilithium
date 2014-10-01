@@ -48,8 +48,6 @@ variables =
 #
 plugins = {}
 
-ucfirst = (s) -> s.charAt(0).toUpperCase() + s.substr(1)
-
 module.exports =
 #
 # create a new project scaffold in cwd
@@ -60,8 +58,8 @@ module.exports =
 #
   run: (name, args...) ->
 
-    variables.name = ucfirst(name.replace(/\s/g, ""))
-    variables.libname = name.replace(/\s/g, "").toLocaleLowerCase()
+    variables.name = pascalCase(name)
+    variables.libname = snakeCase(name)
     variables.description = name
 
     if args.length>0
@@ -150,3 +148,18 @@ liquidInitialization = (ctx) ->
       if path.extname(tag_name) in executable
         require(path.join(__dirname, "/plugins/", plugin))(ctx)
 
+
+#
+# Project Name  => ProjectName
+#
+pascalCase = (str) ->
+
+  res = ''
+  for s in str.split(/\s*/)
+    res += s.charAt(0).toUpperCase() + s.substr(1)
+  return res
+
+#
+# Project Name  => project_name
+#
+snakeCase = (str) -> str.replace(/\s*/, '_').toLowerCase()
