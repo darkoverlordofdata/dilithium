@@ -14,13 +14,15 @@ Manage phaser assets in dart with yaml configuration file.
 Integrated with project scaffold generator.
 Uses Liquid templates to generate project files.
 
-## Install
+## Quickstart
+
+### Install
 
 ```bash
 $ sudo npm install dilithium -g
 ```
 
-## Quickstart
+### Create a new project
 
 ```bash
 $ li2 create DemoApp
@@ -46,7 +48,7 @@ class App extends Dilithium {
 
 ```
 
-
+### Usage
 
     Usage:
       li2 create PATH [-t name | <path>]
