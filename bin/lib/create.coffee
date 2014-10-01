@@ -78,7 +78,8 @@ module.exports =
 
     liquidInitialization exports
     newpath = path.resolve(process.cwd(), variables.libname)
-    tmppath = path.resolve(__dirname, "../../templates", variables.template)
+    tmppath = if fs.existsSync(variables.template) then variables.template
+    else path.resolve(__dirname, "../../templates", variables.template)
     copydir tmppath, newpath
     console.log "Created #{variables.name} at #{newpath} from #{tmppath}..."
 
