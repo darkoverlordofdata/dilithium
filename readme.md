@@ -67,7 +67,5 @@ Templates use Liquid syntax. The following variables are available:
 * project.homepage
 * project.license
   
-Templates can be used in path names. For example:
-
-    In a project named 'Demo', a template file named {{project.name}}.dart is transformed into Demo.dart
+Templates can be used in path names. For example, in a project named 'Demo', a template file named {{project.name}}.dart is transformed into Demo.dart
 
