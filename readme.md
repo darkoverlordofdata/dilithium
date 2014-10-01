@@ -22,7 +22,7 @@ $ cd demoapp
 $ pub build
 ```
 
-
+Inject yaml config into application:
 ```dart
 void main() {
 
