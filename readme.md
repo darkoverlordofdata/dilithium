@@ -1,18 +1,7 @@
+# ==&lt; dilithium: li2 &gt;==
 
-           ___ ___ __  __    _               
-      ____/ (_) (_) /_/ /_  (_)_  ______ ___ 
-     / __  / / / / __/ __ \/ / / / / __ `__ \
-    / /_/ / / / / /_/ / / / / /_/ / / / / / /
-    \__,_/_/_/_/\__/_/ /_/_/\__,_/_/ /_/ /_/ 
-                                             
-                                                                      
-==&lt; dilithium &gt;==
-
-'Cause Every Phaser Needs A Warp Core'
-
-Manage phaser assets in dart with yaml configuration file.
-Integrated with project scaffold generator.
-Uses Liquid templates to generate project files.
+Use yaml to configure play_phaser assets.
+Integrated project scaffold generator with Liquid templates.
 
 ## Quickstart
 
@@ -22,7 +11,7 @@ Uses Liquid templates to generate project files.
 $ sudo npm install dilithium -g
 ```
 
-### Create a new project
+### Create a new Dart project
 
 ```bash
 $ li2 create DemoApp
