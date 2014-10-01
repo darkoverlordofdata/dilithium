@@ -34,6 +34,16 @@ preloadBgdKey: preloadBgd
 preloadBgdImg: 
 
 images:
+      background:     images/background.png
+      board:          images/board.png
+      icon:           images/d16a.png
+      label:          images/label.png
+      scores:         images/scores.png
+      #  ui buttons
+      playButton:     images/buttons/play1.png
+      scoreButton:    images/buttons/score1.png
+      creditsButton:  images/buttons/credits1.png
+      backButton:     images/buttons/back1.png
 
 copyrightText: Copyright 2014 Dark Overlord of Data
 creditsText: |
