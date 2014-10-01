@@ -10,7 +10,29 @@
 
 'Cause Every Phaser Needs A Warp Core'
 
-# Quickstart
+Manage phaser assets in dart with yaml configuration file.
+Integrated with project scaffold generator.
+Uses Liquid templates to generate project files.
+
+
+
+```bash
+$ li2 create DemoApp
+$ cd demoapp
+$ pub build
+```
+
+
+```dart
+void main() {
+
+  Dilithium
+  .using("packages/appname")
+  .then((config) => new Game(config));
+
+}
+```
+
 
 ## Install
 
@@ -19,14 +41,9 @@ $ sudo npm install dilithium -g
 
 ```
 
-### dart project scaffold generator
-
-Use Liquid templates to generate projects
 
     Usage:
       li2 create PATH [-t name | <path>]
-      cd PATH
-      pub build
     
     Options:
       -h  [--help]        # display this message
@@ -39,17 +56,4 @@ Use Liquid templates to generate projects
 
 
 
-
-### manage phaser assets with yaml configuration file
-
-```dart
-void main() {
-
-  Dilithium
-  .using("packages/appname")
-  .then((config) => new Game(config));
-
-}
-
-```
 
