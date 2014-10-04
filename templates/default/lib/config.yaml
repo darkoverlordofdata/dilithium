@@ -45,9 +45,8 @@ images:
       creditsButton:  images/buttons/credits1.png
       backButton:     images/buttons/back1.png
 
-copyrightText: Copyright 2014 Dark Overlord of Data
-creditsText: |
-  Program by darkoverlordofdata
+strings:
+  copyrightText: Copyright 2014 Dark Overlord of Data
 
 sprite:
 levels:

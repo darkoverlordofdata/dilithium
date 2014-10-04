@@ -44,12 +44,17 @@ class Dilithium extends State {
     HttpRequest.getString("$path/config.yaml")
     .then((String source) {
       Config config = new Config(source, path);
-      HttpRequest.getString("$path/preferences.yaml")
+      String to_arrays = config.paths['arrays'];
+      String to_strings = config.paths['strings'];
+      String to_preferences = config.paths['preferences'];
+
+      HttpRequest.getString("$path/$to_preferences")
       .then((String preferences) {
-        HttpRequest.getString("$path/values/arrays.yaml")
+        HttpRequest.getString("$path/$to_arrays")
         .then((String arrays) {
           // get localized strings (if they exist)
-          HttpRequest.getString("$path/values/strings$lang.yaml")
+          String to_locale = to_strings.replaceAll('.yaml', "-$lang.yaml");
+          HttpRequest.getString("$path/$to_locale")
           .then((String strings) {
             config.setStrings(strings);
             config.setArrays(arrays);
@@ -58,9 +63,11 @@ class Dilithium extends State {
           })
           // get default (if they don't exist)
           .catchError((Error e) {
-            HttpRequest.getString("$path/values/strings.yaml")
+            HttpRequest.getString("$path/$to_strings")
             .then((String strings) {
               config.setStrings(strings);
+              config.setArrays(arrays);
+              config.setPreferences(preferences);
               completer.complete(config);
             });
           });

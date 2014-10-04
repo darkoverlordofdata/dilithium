@@ -43,8 +43,8 @@ class Config {
   String preloadBarImg = '';
   String preloadBgdKey = 'preloadBgd';
   String preloadBgdImg = '';
-  String stringsPath = '';
 
+  var paths = {};
   var images = {};
   var sprites = {};
   var levels = {};
@@ -73,6 +73,7 @@ class Config {
 
     this
       ..name = raw['name']
+      ..paths = raw['paths']
       ..minWidth = raw['minWidth']
       ..minHeight = raw['minHeight']
       ..maxWidth = raw['maxWidth']
@@ -90,54 +91,64 @@ class Config {
       ..images = raw['images']
       ..sprites = raw['sprites']
       ..levels = raw['levels']
-      ..stringsPath = raw['strings'];
+      ..strings = raw['strings'];
 
   }
 
+  /**
+   * Load localized strings from res/values/strings.yaml
+   */
   setStrings(String source) {
     strings = loadYaml(source);
   }
 
+  /**
+   * Load preferences from res/preferences.yaml
+   */
   setPreferences(String source) {
-    loadYaml(source).forEach((v) {
+    loadYaml(source).forEach((category) {
       preferences.add({
-          'title': transpose(v['title']),
-          'fields': parse_fields(v['fields'])
+          'title':  xlate(category['title']),
+          'fields': (List fields) {
+            List result = [];
+            fields.forEach((preference) {
+              result.add({
+                  'key':            preference['key'],
+                  'type':           preference['type'],
+                  'title':          xlate(preference['title']),
+                  'defaultValue':   xlate(preference['defaultValue']),
+                  'summary':        xlate(preference['summary'])
+              });
+            });
+            return result;
+          }(category['fields'])
       });
     });
   }
 
+  /**
+   * Load arrays from res/values/arrays.yaml
+   */
   setArrays(String source) {
-    loadYaml(source).forEach((k, v) {
-      arrays[k] = new List();
-      for (var i=0; i<v.length; i++) {
-        String str = v[i];
-        arrays[k].add(transpose(v[i]));
+    loadYaml(source).forEach((key, values) {
+      arrays[key] = new List();
+      for (var i=0; i<values.length; i++) {
+        String str = values[i];
+        arrays[key].add(xlate(values[i]));
       }
     });
   }
 
-  transpose(str) {
-    if (str is String) {
-      if (str.startsWith('string/')) {
-        str = strings[str.replaceAll('string/', '')];
+  /**
+   * Translate string value
+   */
+  xlate(value) {
+    if (value is String) {
+      if (value.startsWith('string/')) {
+        value = strings[value.replaceAll('string/', '')];
       }
     }
-    return str;
-  }
-
-  parse_fields(List fields) {
-    List result = [];
-    fields.forEach((v) {
-      result.add({
-        'type': v['type'],
-        'title': transpose(v['title']),
-        'defaultValue': v['defaultValue'],
-        'summary': transpose(v['summary']),
-        'key': v['key']
-      });
-    });
-    return result;
+    return value;
   }
 
 

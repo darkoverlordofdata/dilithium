@@ -52,7 +52,7 @@ class Credits extends State {
     add
       ..text(20, 335, config.creditsText, style)
       ..button(game.width / 2 - 38, game.height-75, 'backButton', goBack, this)
-      ..text(50, game.height-30, config.copyrightText, cstyle);
+      ..text(50, game.height-30, config.strings['copyrightText'], cstyle);
 
     label.alpha = 0.5;
 }
