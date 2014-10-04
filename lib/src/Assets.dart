@@ -36,7 +36,7 @@ class Assets extends State {
    */
   preload() {
 
-    print("Class Assets initialized");
+    print("Class Assets initializing");
 
     //  Splash...
     load.setPreloadSprite(add.sprite(0, 0, config.splashKey));

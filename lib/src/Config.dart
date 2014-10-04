@@ -22,8 +22,6 @@ class Config {
   String boot = "__boot";
   String assets = "__assets";
   String menu = "__menu";
-  String creditsText = "";
-  String copyrightText = "Copyright 2014 Dark Overlord of Data";
   bool debug = false;
 
   int renderer = AUTO;
@@ -45,10 +43,14 @@ class Config {
   String preloadBarImg = '';
   String preloadBgdKey = 'preloadBgd';
   String preloadBgdImg = '';
+  String stringsPath = '';
 
   var images = {};
   var sprites = {};
   var levels = {};
+  var strings = {};
+  var arrays = {};
+  var preferences = [];
 
   String source;
   cordova.Device device;
@@ -88,9 +90,55 @@ class Config {
       ..images = raw['images']
       ..sprites = raw['sprites']
       ..levels = raw['levels']
-      ..creditsText = raw['creditsText']
-      ..copyrightText = raw['copyrightText'];
+      ..stringsPath = raw['strings'];
 
   }
+
+  setStrings(String source) {
+    strings = loadYaml(source);
+  }
+
+  setPreferences(String source) {
+    loadYaml(source).forEach((v) {
+      preferences.add({
+          'title': transpose(v['title']),
+          'fields': parse_fields(v['fields'])
+      });
+    });
+  }
+
+  setArrays(String source) {
+    loadYaml(source).forEach((k, v) {
+      arrays[k] = new List();
+      for (var i=0; i<v.length; i++) {
+        String str = v[i];
+        arrays[k].add(transpose(v[i]));
+      }
+    });
+  }
+
+  transpose(str) {
+    if (str is String) {
+      if (str.startsWith('string/')) {
+        str = strings[str.replaceAll('string/', '')];
+      }
+    }
+    return str;
+  }
+
+  parse_fields(List fields) {
+    List result = [];
+    fields.forEach((v) {
+      result.add({
+        'type': v['type'],
+        'title': transpose(v['title']),
+        'defaultValue': v['defaultValue'],
+        'summary': transpose(v['summary']),
+        'key': v['key']
+      });
+    });
+    return result;
+  }
+
 
 }

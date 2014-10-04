@@ -26,11 +26,46 @@ class Dilithium extends State {
   Config config;
   Game game;
 
+  /**
+   * Using resources...
+   */
   static async.Future using(String path) {
     async.Completer completer = new async.Completer();
-    HttpRequest.getString("$path/config.li2")
+
+    // get the browser locale setting
+    String lang = window.navigator.language;
+    // simplify english to use default
+    if (lang == "en" || lang.startsWith("en-"))
+      lang = '';
+    else
+      lang = "-$lang";
+
+    //  get the core dilithium configuration
+    HttpRequest.getString("$path/config.yaml")
     .then((String source) {
-      completer.complete(new Config(source, path));
+      Config config = new Config(source, path);
+      HttpRequest.getString("$path/preferences.yaml")
+      .then((String preferences) {
+        HttpRequest.getString("$path/values/arrays.yaml")
+        .then((String arrays) {
+          // get localized strings (if they exist)
+          HttpRequest.getString("$path/values/strings$lang.yaml")
+          .then((String strings) {
+            config.setStrings(strings);
+            config.setArrays(arrays);
+            config.setPreferences(preferences);
+            completer.complete(config);
+          })
+          // get default (if they don't exist)
+          .catchError((Error e) {
+            HttpRequest.getString("$path/values/strings.yaml")
+            .then((String strings) {
+              config.setStrings(strings);
+              completer.complete(config);
+            });
+          });
+        });
+      });
     });
     return completer.future;
 

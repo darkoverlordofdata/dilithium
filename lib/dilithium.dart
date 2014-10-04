@@ -42,3 +42,5 @@ part 'src/Assets.dart';
 part 'src/Boot.dart';
 part 'src/Config.dart';
 part 'src/Dilithium.dart';
+part 'src/Li2Button.dart';
+part 'src/Li2State.dart';
