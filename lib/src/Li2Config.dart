@@ -143,6 +143,9 @@ class Li2Config {
       if (value.startsWith('string/')) {
         value = strings[value.replaceAll('string/', '')];
       }
+      else if (value.startsWith('array/')) {
+        value = arrays[value.replaceAll('array/', '')];
+      }
     }
     return value;
   }
