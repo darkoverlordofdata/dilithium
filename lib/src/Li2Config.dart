@@ -1,5 +1,5 @@
 /*+--------------------------------------------------------------------+
-#| Config.dart
+#| Li2Config.dart
 #+--------------------------------------------------------------------+
 #| Copyright DarkOverlordOfData (c) 2014
 #+--------------------------------------------------------------------+
@@ -15,13 +15,13 @@
 */
 part of dilithium;
 
-class Config {
+class Li2Config {
 
   String path = "";
   String name = "name";
-  String boot = "__boot";
-  String assets = "__assets";
-  String menu = "__menu";
+  String boot = "Li2Boot";
+  String assets = "Li2Assets";
+  String menu = "Li2Menu";
   bool debug = false;
 
   int renderer = AUTO;
@@ -50,10 +50,10 @@ class Config {
   var levels = {};
   var strings = {};
   var arrays = {};
-  var preferences = [];
+  List preferences = [];
 
   String source;
-  cordova.Device device;
+  var device;
 
   /**
    * Load configuration
@@ -61,9 +61,9 @@ class Config {
    * @param source  yaml configuration string
    * @param path    base asset path
    */
-  Config(String this.source, String this.path) {
+  Li2Config(String this.source, String this.path) {
 
-    print("Class Config initialized");
+    print("Class Li2Config initialized");
 
     if (path != "")
       if (!path.endsWith("/"))
@@ -106,26 +106,22 @@ class Config {
    * Load preferences from res/preferences.yaml
    */
   setPreferences(String source) {
+
     loadYaml(source).forEach((category) {
       preferences.add({
-          'title':  xlate(category['title']),
-          'fields': (List fields) {
-            List result = [];
-            fields.forEach((preference) {
-              result.add({
-                  'key':            preference['key'],
-                  'type':           preference['type'],
-                  'title':          xlate(preference['title']),
-                  'defaultValue':   xlate(preference['defaultValue']),
-                  'summary':        xlate(preference['summary'])
-              });
-            });
-            return result;
-          }(category['fields'])
+        'title': xlate(category['title']),
+        'preferences': (List preferences) {
+          List result = [];
+          preferences.forEach((preference) {
+            var p = {};
+            preference.forEach((k, v) => p[k] = xlate(v));
+            result.add(p);
+          });
+          return result;
+        }(category['preferences'])
       });
     });
   }
-
   /**
    * Load arrays from res/values/arrays.yaml
    */

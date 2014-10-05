@@ -38,9 +38,9 @@ import 'dart:async' as async;
 import 'package:yaml/yaml.dart';
 import 'package:play_phaser/phaser.dart';
 
-part 'src/Assets.dart';
-part 'src/Boot.dart';
-part 'src/Config.dart';
 part 'src/Dilithium.dart';
+part 'src/Li2Assets.dart';
+part 'src/Li2Boot.dart';
 part 'src/Li2Button.dart';
+part 'src/Li2Config.dart';
 part 'src/Li2State.dart';

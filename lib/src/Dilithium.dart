@@ -17,13 +17,10 @@
 */
 part of dilithium;
 
-typedef void Next(Config config);
-
-
 class Dilithium extends State {
 
   String path;
-  Config config;
+  Li2Config config;
   Game game;
 
   /**
@@ -43,7 +40,7 @@ class Dilithium extends State {
     //  get the core dilithium configuration
     HttpRequest.getString("$path/config.yaml")
     .then((String source) {
-      Config config = new Config(source, path);
+      Li2Config config = new Li2Config(source, path);
       String to_arrays = config.paths['arrays'];
       String to_strings = config.paths['strings'];
       String to_preferences = config.paths['preferences'];
@@ -86,7 +83,7 @@ class Dilithium extends State {
    *
    * returns this
    */
-  Dilithium(Config this.config) {
+  Dilithium(Li2Config this.config) {
 
     print("Base Game initialized");
     game = new Game(config.width, config.height, config.renderer, '', this);
@@ -97,14 +94,14 @@ class Dilithium extends State {
    *
    */
   create() {
-    game.state.add(config.boot, new Boot(this.config));
-    game.state.add(config.assets, new Assets(this.config));
+    game.state.add(config.boot, new Li2Boot(this.config));
+    game.state.add(config.assets, new Li2Assets(this.config));
     game.state.add(config.menu, levels());
     game.state.start(config.boot);
 
   }
 
-  State levels(); // override to define game states
+  Li2State levels(); // override to define game states
 
 }
 

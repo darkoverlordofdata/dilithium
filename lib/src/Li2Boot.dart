@@ -1,5 +1,5 @@
 /*+--------------------------------------------------------------------+
-#| Boot.dart
+#| Li2Boot.dart
 #+--------------------------------------------------------------------+
 #| Copyright DarkOverlordOfData (c) 2014
 #+--------------------------------------------------------------------+
@@ -11,13 +11,13 @@
 #|
 #+--------------------------------------------------------------------+
 #
-# Lore
+# Dilithium
 #
 #   Game Template
 */
 part of dilithium;
 
-class Boot extends State {
+class Li2Boot extends State {
 
   /**
    * == Boot ==
@@ -26,9 +26,9 @@ class Boot extends State {
    *   * configure the game engine to the environment
    */
   bool orientated = false;
-  Config config;
+  Li2Config config;
 
-  Boot(Config this.config);
+  Li2Boot(Li2Config this.config);
 
   /**
    * State::preload

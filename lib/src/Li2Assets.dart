@@ -15,7 +15,7 @@
 */
 part of dilithium;
 
-class Assets extends State {
+class Li2Assets extends State {
 
   /**
    * == Assets ==
@@ -25,9 +25,9 @@ class Assets extends State {
 
   Sprite preloadBar;
   Sprite preloadBgd;
-  Config config;
+  Li2Config config;
 
-  Assets(Config this.config);
+  Li2Assets(Li2Config this.config);
 
   /**
    * State::preload
@@ -36,7 +36,7 @@ class Assets extends State {
    */
   preload() {
 
-    print("Class Assets initializing");
+    print("Class Li2Assets initializing");
 
     //  Splash...
     load.setPreloadSprite(add.sprite(0, 0, config.splashKey));
