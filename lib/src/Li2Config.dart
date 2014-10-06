@@ -106,22 +106,9 @@ class Li2Config {
    * Load preferences from res/preferences.yaml
    */
   setPreferences(String source) {
-
-    loadYaml(source).forEach((category) {
-      preferences.add({
-        'title': xlate(category['title']),
-        'preferences': (List preferences) {
-          List result = [];
-          preferences.forEach((preference) {
-            var p = {};
-            preference.forEach((k, v) => p[k] = xlate(v));
-            result.add(p);
-          });
-          return result;
-        }(category['preferences'])
-      });
-    });
+    preferences = loadYaml(source);
   }
+
   /**
    * Load arrays from res/values/arrays.yaml
    */
