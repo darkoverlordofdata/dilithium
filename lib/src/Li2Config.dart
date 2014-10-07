@@ -99,27 +99,33 @@ class Li2Config {
    * Load localized strings from res/values/strings.yaml
    */
   setStrings(String source) {
-    strings = loadYaml(source);
+    try {
+      strings = loadYaml(source);
+    } catch (e) {}
   }
 
   /**
    * Load preferences from res/preferences.yaml
    */
   setPreferences(String source) {
-    preferences = loadYaml(source);
+    try {
+      preferences = loadYaml(source);
+    } catch (e) {}
   }
 
   /**
    * Load arrays from res/values/arrays.yaml
    */
   setArrays(String source) {
-    loadYaml(source).forEach((key, values) {
-      arrays[key] = new List();
-      for (var i=0; i<values.length; i++) {
-        String str = values[i];
-        arrays[key].add(xlate(values[i]));
-      }
-    });
+    try {
+      loadYaml(source).forEach((key, values) {
+        arrays[key] = new List();
+        for (var i=0; i<values.length; i++) {
+          String str = values[i];
+          arrays[key].add(xlate(values[i]));
+        }
+      });
+    } catch (e) {}
   }
 
   /**
