@@ -17,6 +17,9 @@ part of dilithium;
 
 class Li2Config {
 
+  const String DELIM_ARRAY  = 'array/';
+  const String DELIM_STRING = 'string/';
+
   String path = "";
   String name = "name";
   String boot = "Li2Boot";
@@ -134,10 +137,10 @@ class Li2Config {
   xlate(value) {
     if (value is String) {
       if (value.startsWith('string/')) {
-        value = strings[value.replaceAll('string/', '')];
+        value = strings[value.replaceAll(DELIM_STRING, '')];
       }
       else if (value.startsWith('array/')) {
-        value = arrays[value.replaceAll('array/', '')];
+        value = arrays[value.replaceAll(DELIM_ARRAY, '')];
       }
     }
     return value;

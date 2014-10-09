@@ -40,6 +40,7 @@ variables =
   description   : ""
   author        : ""
   homepage      : ""
+  copyright     : new Date().getYear();
   license       : "MIT License"
   template      : "default"
 
@@ -69,6 +70,7 @@ module.exports =
           when '-t', '--template'     then variables.template     = args.shift()
           when '-l', '--license'      then variables.license      = args.shift()
           when '-a', '--author'       then variables.author       = args.shift()
+          when '-c', '--copyright'    then variables.copyright    = args.shift()
           when '-w', '--webpage'      then variables.homepage     = args.shift()
           when '-d', '--description'  then variables.description  = args.shift()
 
