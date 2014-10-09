@@ -1,20 +1,18 @@
-/*+--------------------------------------------------------------------+
-#| Li2Boot.dart
-#+--------------------------------------------------------------------+
-#| Copyright DarkOverlordOfData (c) 2014
-#+--------------------------------------------------------------------+
-#|
-#| This file is a part of dilithium
-#|
-#| dilithium is free software; you can copy, modify, and distribute
-#| it under the terms of the MIT License
-#|
-#+--------------------------------------------------------------------+
-#
-# Dilithium
-#
-#   Game Template
-*/
+/**
+ *--------------------------------------------------------------------+
+ * Li2Boot.dart
+ *--------------------------------------------------------------------+
+ * Copyright DarkOverlordOfData (c) 2014
+ *--------------------------------------------------------------------+
+ *
+ * This file is a part of dilithium
+ *
+ * dilithium is free software; you can copy, modify, and distribute
+ * it under the terms of the MIT License
+ *
+ *--------------------------------------------------------------------+
+ *
+ */
 part of dilithium;
 
 class Li2Boot extends State {

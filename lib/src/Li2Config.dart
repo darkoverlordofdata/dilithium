@@ -1,18 +1,18 @@
-/*+--------------------------------------------------------------------+
-#| Li2Config.dart
-#+--------------------------------------------------------------------+
-#| Copyright DarkOverlordOfData (c) 2014
-#+--------------------------------------------------------------------+
-#|
-#| This file is a part of dilithium
-#|
-#| dilithium is free software; you can copy, modify, and distribute
-#| it under the terms of the MIT License
-#|
-#+--------------------------------------------------------------------+
-#
-# Load the game assets
-*/
+/**
+ *--------------------------------------------------------------------+
+ * Li2Config.dart
+ *--------------------------------------------------------------------+
+ * Copyright DarkOverlordOfData (c) 2014
+ *--------------------------------------------------------------------+
+ *
+ * This file is a part of dilithium
+ *
+ * dilithium is free software; you can copy, modify, and distribute
+ * it under the terms of the MIT License
+ *
+ *--------------------------------------------------------------------+
+ *
+ */
 part of dilithium;
 
 class Li2Config {

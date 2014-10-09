@@ -1,6 +1,6 @@
 /**
  *--------------------------------------------------------------------+
- * Li2Button.dart
+ * Li2Template.dart
  *--------------------------------------------------------------------+
  * Copyright DarkOverlordOfData (c) 2014
  *--------------------------------------------------------------------+
@@ -15,23 +15,25 @@
  */
 part of dilithium;
 
+/**
+ * Wrapper for liquid templates
+ */
+class Li2Template {
 
-class Li2Button extends Button {
+  String template;
+  var _template;
 
-  Text label;
-
-  Li2Button(Game game, num x, num y, String key, TextStyle style, String text, Function callback):
-        super(game, x, y, key, callback) {
-
-    label = new Text(game, 0, 0, text, style);
-    addChild(label);
-    setLabel(text);
-
+  Li2Template(String template) {
+    parse(template);
   }
 
-  setLabel(String text) {
-    label.setText(text);
-    label.x = ((width - label.width)/2).floor();
-    label.y = ((height - label.height)/2).floor();
+
+  parse(String template) {
+    this.template = template;
+    _template = context['Liquid']['Template'].callMethod('parse', [template]);
+  }
+
+  render(variables) {
+    return _template.callMethod('render', [new JsObject.jsify(variables)]);
   }
 }

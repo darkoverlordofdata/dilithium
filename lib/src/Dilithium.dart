@@ -1,20 +1,18 @@
-/*+--------------------------------------------------------------------+
-#| BaseGame.dart
-#+--------------------------------------------------------------------+
-#| Copyright DarkOverlordOfData (c) 2014
-#+--------------------------------------------------------------------+
-#|
-#| This file is a part of dilithium
-#|
-#| dilithium is free software; you can copy, modify, and distribute
-#| it under the terms of the MIT License
-#|
-#+--------------------------------------------------------------------+
-#
-# dilithium
-#
-#   Game Template
-*/
+/**
+ *--------------------------------------------------------------------+
+ * Dilithium.dart
+ *--------------------------------------------------------------------+
+ * Copyright DarkOverlordOfData (c) 2014
+ *--------------------------------------------------------------------+
+ *
+ * This file is a part of dilithium
+ *
+ * dilithium is free software; you can copy, modify, and distribute
+ * it under the terms of the MIT License
+ *
+ *--------------------------------------------------------------------+
+ *
+ */
 part of dilithium;
 
 class Dilithium extends State {
@@ -27,6 +25,12 @@ class Dilithium extends State {
    * Using resources...
    */
   static async.Future using(String path) {
+
+    // Secret Template, Man...
+    var script = document.createElement('script');
+    script.setAttribute('src', 'packages/dilithium/liquid-0.0.7.min.js');
+    querySelector('head').append(script);
+
     async.Completer completer = new async.Completer();
 
     // get the browser locale setting
@@ -74,6 +78,7 @@ class Dilithium extends State {
     return completer.future;
 
   }
+
 
   /**
    * == New Game ==

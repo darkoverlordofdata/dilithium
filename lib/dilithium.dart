@@ -44,3 +44,4 @@ part 'src/Li2Boot.dart';
 part 'src/Li2Button.dart';
 part 'src/Li2Config.dart';
 part 'src/Li2State.dart';
+part 'src/Li2Template.dart';
