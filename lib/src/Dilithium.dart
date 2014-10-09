@@ -26,7 +26,9 @@ class Dilithium extends State {
    */
   static async.Future using(String path) {
 
-    // Secret Template, Man...
+    // Secret Template, Man
+    // Secret Template, Man
+    // They've given you a browser...
     var script = document.createElement('script');
     script.setAttribute('src', 'packages/dilithium/liquid-0.0.7.min.js');
     querySelector('head').append(script);

@@ -1,0 +1,50 @@
+<div class="holo holo-dark">
+    <div id="accent" class="holo-accent-blue">
+
+        <div class="holo-action-bar">
+            <h1 class="icon">{{ title }}</h1>
+        </div>
+
+        {% for category in categories %}
+            <h2 class="holo-divider">{{ category.title }}</h2>
+           {% for preference in category.preferences %}
+
+                {% case preference.type %}
+
+                    {% when 'CheckBoxPreference' %}
+
+                        <ul class="holo-list">
+                            <li>
+                                <div class="holo-switch">
+                                    <input type="checkbox" id="{{ preference.title }}"/>
+                                    <label class="holo-label" for="{{ preference.title }}">
+                                        {{ preference.title }}
+                                    </label>
+                                    <div class="holo-content holo-help"><p>{{ preference.summary }}</p></div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    {% when 'ListPreference' %}
+
+                        <ul class="holo-list">
+                            <li>
+                                <div>
+                                    <select class="holo-spinner" id="{{ preference.title }}">
+                                        {% for value in preference.entryValues %}
+                                        <option>{{ value }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <label class="holo-label" for="{{ preference.title }}">
+                                        {{ preference.title }}
+                                    </label>
+                                    <div class="holo-content holo-help"><p>{{ preference.summary }}</p></div>
+                                </div>
+                            </li>
+                        </ul>
+
+                {% endcase %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>
