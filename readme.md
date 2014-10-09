@@ -40,12 +40,15 @@ class App extends Dilithium {
 
 #### Framework Classes
 
-* Li2Assets     - load assets listed in config.yaml
-* Li2Boot       - set device params, load splash screen
+* Li2Assets     - * load assets listed in config.yaml
+* Li2Boot       - * set device params, load splash screen
 * Li2Button     - Button+Text component
-* Li2Config     - Wraps the config.yaml
+* Li2Config     - ** Wraps the config.yaml
 * Li2State      - Add dilithium methods to the State class
 * Li2Template   - Wraps the embedded Liquid Template engine
+
+    &#42; = Auto invoked by dilithium
+    &#42;&#42; = Populated by dilithium
 
 ### Usage
 
