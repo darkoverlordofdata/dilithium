@@ -1,4 +1,4 @@
-# ==&lt; dilithium: li2 &gt;==
+# ==< dilithium: li2 >==
 
 Use yaml to configure play_phaser assets.
 
