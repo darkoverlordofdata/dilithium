@@ -17,8 +17,8 @@ part of dilithium;
 
 class Li2Config {
 
-  const String DELIM_ARRAY  = 'array/';
-  const String DELIM_STRING = 'string/';
+  static const String DELIM_ARRAY  = 'array/';
+  static const String DELIM_STRING = 'string/';
 
   String path = "";
   String name = "name";
@@ -27,7 +27,7 @@ class Li2Config {
   String menu = "Li2Menu";
   bool debug = false;
 
-  int renderer = AUTO;
+  int renderer = CANVAS; // Force Canvas for Mobile
   int width = 320;
   int height = 480;
   int minWidth = 320;

@@ -26,10 +26,11 @@ class Dilithium extends State {
    */
   static async.Future using(String path) {
 
-    // Secret Template, Man
-    // Secret Template, Man
-    // They've given you a browser...
+    // for now, we'll use javascript
     var script = document.createElement('script');
+    // Secret Template Man
+    // Secret Template Man
+    // They've given you a browser, and taken away your brain.
     script.setAttribute('src', 'packages/dilithium/liquid-0.0.7.min.js');
     querySelector('head').append(script);
 
@@ -92,7 +93,7 @@ class Dilithium extends State {
    */
   Dilithium(Li2Config this.config) {
 
-    print("Base Game initialized");
+    print("Dilithium initialized");
     game = new Game(config.width, config.height, config.renderer, '', this);
 
   }

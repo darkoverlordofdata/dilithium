@@ -16,7 +16,7 @@
 part of dilithium;
 
 /**
- * Wrapper for liquid templates
+ * Use the Liquid template engine to generate UI bits
  */
 class Li2Template {
 
