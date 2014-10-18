@@ -49,6 +49,11 @@ class Li2Assets extends State {
 
     }
 
+    //  load audio
+    if (config.audio != null) {
+      config.audio.forEach((k, v) => load.audio(k, config.path+v));
+    }
+
     //  load images
     if (config.images != null) {
       config.images.forEach((k, v) => load.image(k, config.path+v));

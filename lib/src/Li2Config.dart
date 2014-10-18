@@ -48,6 +48,7 @@ class Li2Config {
   String preloadBgdImg = '';
 
   var paths = {};
+  var audio = {};
   var images = {};
   var sprites = {};
   var levels = {};
@@ -91,6 +92,7 @@ class Li2Config {
       ..preloadBarImg = raw['preloadBarImg']
       ..preloadBgdKey = raw['preloadBgdKey']
       ..preloadBgdImg = raw['preloadBgdImg']
+      ..audio = raw['audio']
       ..images = raw['images']
       ..sprites = raw['sprites']
       ..levels = raw['levels']
