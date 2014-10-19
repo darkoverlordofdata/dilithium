@@ -31,7 +31,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 library dilithium;
 
 import 'dart:html';
-import 'dart:math';
 import 'dart:js';
 import 'dart:async' as async;
 

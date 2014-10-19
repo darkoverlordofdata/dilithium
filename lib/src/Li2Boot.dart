@@ -56,6 +56,7 @@ class Li2Boot extends State {
 
     if (game.device.desktop) {
 
+      print("game.device.desktop");
       scale // for desktop:
         ..scaleMode = ScaleManager.SHOW_ALL
         ..minWidth = config.minWidth
@@ -67,6 +68,7 @@ class Li2Boot extends State {
         ..setScreenSize(true);
     } else {
 
+      print("game.device.mobile");
       scale // for mobile:
         ..scaleMode = ScaleManager.SHOW_ALL
         ..minWidth = config.minWidth
@@ -75,14 +77,15 @@ class Li2Boot extends State {
         ..maxHeight = config.maxHeight
         ..pageAlignHorizontally = config.pageAlignHorizontally
         ..pageAlignVertically = config.pageAlignVertically
-        ..forceOrientation(config.forceOrientation)
-        ..hasResized.add(gameResized, this)
         ..setScreenSize(true);
+//        ..setResizeCallback(gameResized)
 
+      print("game.device.mobile2");
       if (config.forceOrientation) {
         scale //
-          ..enterIncorrectOrientation.add(enterIncorrectOrientation, this)
-          ..leaveIncorrectOrientation.add(leaveIncorrectOrientation, this);
+          ..forceOrientation(config.pageAlignHorizontally, config.pageAlignVertically)
+          ..enterIncorrectOrientation.add(enterIncorrectOrientation)
+          ..leaveIncorrectOrientation.add(leaveIncorrectOrientation);
 
         }
     }

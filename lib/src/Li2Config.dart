@@ -57,7 +57,7 @@ class Li2Config {
   List preferences = [];
 
   String source;
-  var device;
+//  var device;
 
   /**
    * Load configuration
