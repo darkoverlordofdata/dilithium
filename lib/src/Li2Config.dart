@@ -54,7 +54,7 @@ class Li2Config {
   var levels = {};
   var strings = {};
   var arrays = {};
-  List preferences = [];
+  var preferences = {};
 
   String source;
 //  var device;

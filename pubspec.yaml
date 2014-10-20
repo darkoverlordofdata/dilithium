@@ -1,7 +1,7 @@
 name: dilithium
-version: 0.1.10
+version: 0.1.11
 description:
-  Asset and Template Management for Play_Phaser
+  Asset and Project Template Management for Play_Phaser
 author: brucedavidson <darkoverlordofdata@gmail.com>
 homepage: https://github.com/darkoverlordofdata/dilithium
 dependencies:

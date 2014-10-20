@@ -47,8 +47,8 @@ class App extends Dilithium {
 * Li2State      - Add dilithium methods to the State class
 * Li2Template   - Wraps the embedded Liquid Template engine
 
-    &#42; = Auto invoked by dilithium
-    &#42;&#42; = Populated by dilithium
+    * = Auto invoked by dilithium
+    ** = Populated by dilithium
 
 ### Usage
 

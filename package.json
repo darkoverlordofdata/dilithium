@@ -1,6 +1,6 @@
 {
   "name": "dilithium",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Dart project generator",
   "main": "index.js",
   "scripts": {
