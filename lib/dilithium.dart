@@ -35,7 +35,7 @@ import 'dart:js';
 import 'dart:async' as async;
 
 import 'package:yaml/yaml.dart';
-import 'package:play_phaser/phaser.dart';
+import 'package:play_phaser/phaser.dart' as Phaser;
 
 part 'src/Dilithium.dart';
 part 'src/Li2Assets.dart';

@@ -15,7 +15,7 @@
  */
 part of dilithium;
 
-class Li2Boot extends State {
+class Li2Boot extends Phaser.State {
 
   /**
    * == Boot ==
@@ -58,7 +58,7 @@ class Li2Boot extends State {
 
       print("game.device.desktop");
       scale // for desktop:
-        ..scaleMode = ScaleManager.SHOW_ALL
+        ..scaleMode = Phaser.ScaleManager.SHOW_ALL
         ..minWidth = config.minWidth
         ..minHeight = config.minHeight
         ..maxWidth = config.maxWidth
@@ -70,7 +70,7 @@ class Li2Boot extends State {
 
       print("game.device.mobile");
       scale // for mobile:
-        ..scaleMode = ScaleManager.SHOW_ALL
+        ..scaleMode = Phaser.ScaleManager.SHOW_ALL
         ..minWidth = config.minWidth
         ..minHeight = config.minHeight
         ..maxWidth = config.maxWidth

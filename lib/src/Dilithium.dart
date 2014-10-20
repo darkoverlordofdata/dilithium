@@ -15,11 +15,11 @@
  */
 part of dilithium;
 
-class Dilithium extends State {
+abstract class Dilithium extends Phaser.State {
 
   String path;
   Li2Config config;
-  Game game;
+  Phaser.Game game;
 
   /**
    * Using resources...
@@ -94,7 +94,7 @@ class Dilithium extends State {
   Dilithium(Li2Config this.config) {
 
     print("Dilithium initialized");
-    game = new Game(config.width, config.height, config.renderer, '', this);
+    game = new Phaser.Game(config.width, config.height, config.renderer, '', this);
 
   }
 

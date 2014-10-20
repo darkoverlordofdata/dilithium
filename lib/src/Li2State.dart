@@ -15,9 +15,9 @@
  */
 part of dilithium;
 
-class Li2State extends State {
+class Li2State extends Phaser.State {
 
-  Li2Button addButton(num x, num y, String key, TextStyle style, String text, Function callback) {
+  Li2Button addButton(num x, num y, String key, Phaser.TextStyle style, String text, Function callback) {
     var button = new Li2Button(game, x, y, key, style, text, callback);
     add.group().add(button);
     return button;

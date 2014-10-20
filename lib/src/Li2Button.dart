@@ -16,14 +16,14 @@
 part of dilithium;
 
 
-class Li2Button extends Button {
+class Li2Button extends Phaser.Button {
 
-  Text label;
+  Phaser.Text label;
 
-  Li2Button(Game game, num x, num y, String key, TextStyle style, String text, Function callback):
+  Li2Button(Phaser.Game game, num x, num y, String key, Phaser.TextStyle style, String text, Function callback):
         super(game, x, y, key, callback) {
 
-    label = new Text(game, 0, 0, text, style);
+    label = new Phaser.Text(game, 0, 0, text, style);
     addChild(label);
     setLabel(text);
 
