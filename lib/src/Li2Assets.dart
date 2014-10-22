@@ -71,14 +71,14 @@ class Li2Assets extends Phaser.State {
     if (config.sprites != null) {
       config.sprites.forEach((key, sprite) {
         if (sprite['file'] is String) {
-          load.spritesheet(key, sprite['file'], sprite['width'], sprite['height']);
+          load.spritesheet(key, config.path+sprite['file'], sprite['width'], sprite['height']);
         } else {
           if (sprite['selected'] == true) {
-            load.spritesheet(key, sprite['file'][['sprite.selected']], sprite['width'], sprite['height']);
+            load.spritesheet(key, config.path+sprite['file'][['sprite.selected']], sprite['width'], sprite['height']);
           }
           var ix = 0;
           sprite['file'].forEach((file) {
-            load.spritesheet("$key[$ix]", file, sprite['width'], sprite['height']);
+            load.spritesheet("$key[$ix]", config.path+file, sprite['width'], sprite['height']);
             ix++;
           });
         }
