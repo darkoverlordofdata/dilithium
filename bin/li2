@@ -34,8 +34,6 @@ dilithium = require("./lib/dilithium")
 $usage = """
 Usage:
   li2 create PATH [project -t name | <path>]
-  cd PATH
-  pub build
 
 Options:
   -h  [--help]        # display this message

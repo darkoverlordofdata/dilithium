@@ -15,9 +15,10 @@ $ sudo npm install dilithium -g
 ### Create a new Dart project
 
 ```bash
-$ li2 create DemoApp
-$ cd demoapp
-$ pub build
+$ li2 create game -t match3
+$ cd game
+$ pub get
+$ pub serve
 ```
 
 Inject yaml config into application:
@@ -51,6 +52,7 @@ class App extends Dilithium {
     ** = Populated by dilithium
 
 ### Usage
+
 
     Usage:
       li2 create PATH [-t name | <path>]

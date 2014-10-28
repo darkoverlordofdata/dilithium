@@ -33,3 +33,11 @@ import "package:dilithium/dilithium.dart";
 
 part 'src/{{project.name}}Application.dart';
 part 'src/Game.dart';
+part 'src/classes/Gem.dart';
+part 'src/classes/GemGroup.dart';
+part 'src/screens/Preferences.dart';
+part 'src/screens/Menu.dart';
+part 'src/screens/Credits.dart';
+part 'src/screens/Scores.dart';
+part 'src/screens/Levels.dart';
+part 'src/screens/GameOver.dart';

@@ -1,5 +1,3 @@
-/*
-
 Copyright (c) {{project.copyright}} {{project.author}}
 
 This file is part of {{project.libname}}.
@@ -16,20 +14,3 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with {{project.libname}}.  If not, see <http://www.gnu.org/licenses/>.
-
-*/
-
-library {{project.libname}};
-
-import 'dart:html';
-import 'dart:math';
-import 'dart:js';
-import 'dart:async' as async;
-
-import 'package:match3/match3.dart';
-import 'package:yaml/yaml.dart';
-import 'package:play_phaser/phaser.dart';
-import "package:dilithium/dilithium.dart";
-
-part 'src/{{project.name}}Application.dart';
-part 'src/Game.dart';

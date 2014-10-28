@@ -1,0 +1,108 @@
+template: preferences/preferences.liquid
+id: "#preferences"
+icon: drawable/icon
+title: {{project.name}}
+categories:
+  -   title: string/preferences_display_category
+      preferences:
+        -   type: CheckBoxPreference
+            title: string/preferences_display_fullscreen_title
+            defaultValue: true
+            summary: string/preferences_display_fullscreen
+            key: fullscreen
+        -   type: ListPreference
+            title: string/preferences_display_scaling_factor_title
+            summary: string/preferences_display_scaling_factor
+            key: scaling_factor
+            defaultValue: 1.0
+            entries: array/preferences_display_scaling_factor
+            entryValues: array/preferences_display_scaling_factor_values
+        -   type: CheckBoxPreference
+            title: string/preferences_optimized_drawing_title
+            defaultValue: false
+            summary: string/preferences_optimized_drawing
+            key: optimized_drawing
+
+  -   title: string/preferences_dialog_category
+      preferences:
+        -   type: CheckBoxPreference
+            title: string/preferences_dialog_confirmrest_title
+            defaultValue: true
+            summary: string/preferences_dialog_confirmrest
+            key: confirm_rest
+        -   type: CheckBoxPreference
+            title: string/preferences_dialog_confirmattack_title
+            defaultValue: true
+            summary: string/preferences_dialog_confirmattack
+            key: confirm_attack
+        -   type: ListPreference
+            title: string/preferences_dialog_monsterloot_title
+            summary: string/preferences_dialog_monsterloot
+            key: display_lootdialog
+            defaultValue: 0
+            entries: array/preferences_display_loot
+            entryValues: array/preferences_display_loot_values
+        -   type: ListPreference
+            title: string/preferences_dialog_overwrite_savegame_title
+            summary: string/preferences_dialog_overwrite_savegame
+            key: display_overwrite_savegame
+            defaultValue: 0
+            entries: array/preferences_display_overwrite_savegame_entries
+            entryValues: array/preferences_display_overwrite_savegame_values
+
+  -   title: string/preferences_combat_category
+      preferences:
+        -   type: ListPreference
+            title: string/preferences_combat_speed_title
+            summary: string/preferences_combat_speed
+            key: attackspeed
+            defaultValue: 1000
+            entries: array/preferences_attackspeed
+            entryValues: array/preferences_attackspeed_values
+
+  -   title: string/preferences_movement_category
+      preferences:
+        -   type: ListPreference
+            title: string/preferences_movementmethod_title
+            summary: string/preferences_movementmethod
+            key: movementmethod
+            defaultValue: 0
+            entries: array/preferences_movementmethods
+            entryValues: array/preferences_movementmethod_values
+        -   type: ListPreference
+            title: string/preferences_movement_dpad_position_title
+            summary: string/preferences_movement_dpad_position
+            key: dpadposition
+            defaultValue: 0
+            entries: array/preferences_movement_dpad_positions
+            entryValues: array/preferences_movement_dpad_positions_values
+        -   type: CheckBoxPreference
+            title: string/preferences_movement_dpad_minimizeable_title
+            defaultValue: true
+            summary: string/preferences_movement_dpad_minimizeable
+            key: dpadMinimizeable
+
+  -   title: string/preferences_ui_category
+      preferences:
+        -   type: CheckBoxPreference
+            title: string/preferences_ui_enable_animations_title
+            defaultValue: true
+            summary: string/preferences_ui_enable_animations
+            key: enableUiAnimations
+        -   type: ListPreference
+            title: string/preferences_quickslots_placement
+            summary: string/preferences_quickslots_placement_summary
+            key: quickslots_placement
+            defaultValue: 0
+            entries: array/preferences_quickslots_placements
+            entryValues: array/preferences_quickslots_placements_values
+        -   type: CheckBoxPreference
+            title: string/preferences_ui_show_quickslots_when_toolbox_is_visible_title
+            defaultValue: false
+            summary: string/preferences_ui_show_quickslots_when_toolbox_is_visible
+            key: showQuickslotsWhenToolboxIsVisible
+        -   type: CheckBoxPreference
+            title: string/preferences_ui_use_localized_resources_title
+            defaultValue: true
+            summary: string/preferences_ui_use_localized_resources
+            key: useLocalizedResources
