@@ -4,6 +4,13 @@ Use yaml to configure play_phaser assets.
 
 Liquid based project scaffold generator.
 
+Currently, there are 4 templates:
+
+* default - a port of phaser_tutorial_02 to dart
+* dartemis - a port of phaser_tutorial_02 using dartemis
+* dilithium - an empty scaffold using dilithium
+* match3 - demo game using dilithium
+
 ## Quickstart
 
 ### Install
@@ -15,7 +22,7 @@ $ sudo npm install dilithium -g
 ### Create a new Dart project
 
 ```bash
-$ li2 create game -t match3
+$ li2 create game -t default
 $ cd game
 $ pub get
 $ pub serve

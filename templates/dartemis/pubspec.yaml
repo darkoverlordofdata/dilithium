@@ -1,14 +1,13 @@
-name: {{ project.libname }}
+name: orion
 version: 0.0.1
-description:
-  {{ project.description }}
-author: {{ project.author }}
-homepage: {{ project.homepage}}
+description: A sample web application
 dependencies:
   browser: any
+  dartemis: any
   play_phaser: any
-  play_pixi: any
 
+dev_dependencies:
+#  unittest: any
 transformers:
 - $dart2js:
     checked: false
