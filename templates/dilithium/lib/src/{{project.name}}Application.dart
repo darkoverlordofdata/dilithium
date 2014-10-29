@@ -24,17 +24,7 @@ class {{project.name}}Application {
    *   * Start a game
    */
   {{project.name}}Application() {
-
-    if (context['cordova'] != null) {
-      cordova.Device.init()
-      .then((device) => startGame(this, device))
-      .catchError((ex, st) {
-        print(ex);
-        print(st);
-        startGame(this, null);
-      });
-    }
-    else startGame(this, null);
+    startGame(this);
   }
 
   /**
@@ -44,7 +34,7 @@ class {{project.name}}Application {
    *   * Using game configuration
    *   * Start a game instance
    */
-  void startGame(listener, device) {
+  void startGame(listener) {
 
     Dilithium.using("packages/{{project.libname}}/res")
     .then((config) {
@@ -56,7 +46,7 @@ class {{project.name}}Application {
 
         querySelector('#logo').style.display = 'none';
         querySelector('body').style.backgroundColor = 'black';
-        new Game(config, new Li2Template(template), device);
+        new Game(config, new Li2Template(template));
       });
     });
 

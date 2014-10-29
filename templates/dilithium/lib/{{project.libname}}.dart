@@ -26,7 +26,6 @@ import 'dart:math';
 import 'dart:js';
 import 'dart:async' as async;
 
-import 'package:match3/match3.dart';
 import 'package:yaml/yaml.dart';
 import 'package:play_phaser/phaser.dart';
 import "package:dilithium/dilithium.dart";

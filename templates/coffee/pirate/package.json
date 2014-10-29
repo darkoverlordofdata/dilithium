@@ -1,0 +1,14 @@
+{
+  "name": "{{project.name}}",
+  "version": "0.0.1",
+  "description": "Talk like a pirate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "arg": "./bin/{{project.name}}"
+  },
+  "author": "{{project.author}}",
+  "license": "MIT"
+}

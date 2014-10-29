@@ -19,7 +19,7 @@ class Game  extends Dilithium {
 
   Li2Template template;
 
-  Game(config, this.template, this.device): super(config) {
+  Game(config, this.template): super(config) {
   }
 
   /**

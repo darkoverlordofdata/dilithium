@@ -1,15 +1,33 @@
 # ==< dilithium: li2 >==
 
-Use yaml to configure play_phaser assets.
+## dilithium
+Dart Library - use yaml to configure play_phaser assets.
 
-Liquid based project scaffold generator.
+#### Dart Framework Classes
 
-Currently, there are 4 templates:
+* Dilithium     - Game application class
+* Li2Assets     - * load assets listed in config.yaml
+* Li2Boot       - * set device params, load splash screen
+* Li2Button     - Button+Text component
+* Li2Config     - ** Wraps the config.yaml
+* Li2State      - Add dilithium methods to the State class
+* Li2Template   - Wraps the embedded Liquid Template engine
+
+    * = Auto invoked by dilithium
+    ** = Populated by dilithium
+
+## li2
+A project template generator using Liquid templates.
+Kind of like jekyll, but for code.
+
+Currently, there are 5 templates:
 
 * default - a port of phaser_tutorial_02 to dart
 * dartemis - a port of phaser_tutorial_02 using dartemis
 * dilithium - an empty scaffold using dilithium
 * match3 - demo game using dilithium
+* coffee/pirate - demo in coffee-script
+
 
 ## Quickstart
 
@@ -46,17 +64,6 @@ class App extends Dilithium {
 
 ```
 
-#### Framework Classes
-
-* Li2Assets     - * load assets listed in config.yaml
-* Li2Boot       - * set device params, load splash screen
-* Li2Button     - Button+Text component
-* Li2Config     - ** Wraps the config.yaml
-* Li2State      - Add dilithium methods to the State class
-* Li2Template   - Wraps the embedded Liquid Template engine
-
-    * = Auto invoked by dilithium
-    ** = Populated by dilithium
 
 ### Usage
 

@@ -1,0 +1,23 @@
+#!/usr/bin/env coffee
+#+--------------------------------------------------------------------+
+#| Arg!
+#+--------------------------------------------------------------------+
+#| Copyright {{project.author}} (c) {{project.copyright}}
+#+--------------------------------------------------------------------+
+#|
+#| 'Tis file be part 'o Arg
+#|
+#| Arg! be free software; ye can copy, modify, 'n distribute 
+#| it under th' terms 'o th' MIT License
+#|
+#+--------------------------------------------------------------------+
+#
+http = require('http')
+url = "http://postlikeapirate.com/AJAXtranslate.php?typing="
+
+http.get url+escape(process.argv.slice(2).join(' ')), (res) ->
+  res.on 'data', (chunk) ->
+    console.log String(chunk)
+  .on 'error', (err) ->
+    console.log err
+
