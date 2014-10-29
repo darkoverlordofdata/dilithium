@@ -18,7 +18,10 @@ Dart Library - use yaml to configure play_phaser assets.
 
 ## li2
 A project template generator using Liquid templates.
-Kind of like jekyll, but for code.
+Originally created to generate dilithium projects, li2
+could be used for any language.
+
+Think jekyll, but for code.
 
 Currently, there are 5 templates:
 
