@@ -34,19 +34,24 @@ dilithium = require("./lib/dilithium")
 $usage = """
 Usage:
   li2 create PATH [project -t name | <path>]
+  li2 set --option "value" [, --option "value"]
 
 Options:
   -h  [--help]        # display this message
   -t  [--template]    # new project template, defaults to 'default'
   -v  [--version]     # display version
   -a  [--author]      # set author
+  -c  [--copyright]   # set copyright
   -d  [--description] # set description
   -l  [--license]     # set license text
+  -s  [--source]      # set filetype to be source template
   -w  [--webpage]     # set home page
 """
 switch process.argv[2]
 
   when 'create'     then dilithium.create process.argv.slice(3)...
+
+  when 'set'        then dilithium.set process.argv.slice(3)...
 
   when '--version'  then console.log "li2 v"+require('../package.json').version
 

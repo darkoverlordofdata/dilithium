@@ -18,8 +18,8 @@ Dart Library - use yaml to configure play_phaser assets.
 
 ## li2
 A project template generator using Liquid templates.
-Originally created to generate dilithium projects, li2
-could be used for any language.
+Li2 was created to generate dilithium projects
+but could be used for many other programming languages.
 
 Think jekyll, but for code.
 
@@ -72,15 +72,21 @@ class App extends Dilithium {
 
 
     Usage:
-      li2 create PATH [-t name | <path>]
-    
+      li2 create PATH [project -t name | <path>]
+      li2 set --option "value"
+      li2 set --source +.java --source -.dart
+
+      set values are saved in ~/.dilithium.json
+
     Options:
       -h  [--help]        # display this message
       -t  [--template]    # new project template, defaults to 'default'
       -v  [--version]     # display version
       -a  [--author]      # set author
+      -c  [--copyright]   # set copyright
       -d  [--description] # set description
       -l  [--license]     # set license text
+      -s  [--source]      # set filetype to be source template
       -w  [--webpage]     # set home page
 
 
@@ -94,10 +100,12 @@ Templates use Liquid syntax. The following variables are available:
 
 * project.name          
 * project.libname
-* project.description
 * project.author
+* project.copyright
+* project.description
 * project.homepage
 * project.license
-  
+* project.source
+
 Templates can be used in path names. For example, in a project named 'Demo', a template file named {{project.name}}.dart is transformed into Demo.dart
 

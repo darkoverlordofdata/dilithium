@@ -19,30 +19,14 @@
 fs = require('fs')
 path = require('path')
 Liquid = require('huginn-liquid')
+util = require('./util')
 LocalFileSystem = require('./classes/LocalFileSystem')
 
 #
-# sources - list of file extensions treated as templates
-#
-sources = ['.html', '.xml', '.md', '.markdown', '.yaml', '.dart', '.li2', '.gitignore', '.css']
-
-#
-# executable - list of file extension executables
+# executable - list of file extension executables for plugins
 #
 executable = ['.coffee', '.js']
 
-#
-# variables - table of variables to replace in templates
-#
-variables =
-  name          : ""
-  libname       : ""
-  description   : ""
-  author        : ""
-  homepage      : ""
-  copyright     : new Date().getYear();
-  license       : "MIT License"
-  template      : "default"
 
 #
 # plugins - table of liquid plugins installed from npm
@@ -59,22 +43,14 @@ module.exports =
 #
   run: (name, args...) ->
 
+    #
+    # variables - table of variables to replace in templates
+    #
+    variables = util.variables()
     variables.name = pascalCase(name)
     variables.libname = snakeCase(name)
     variables.description = name
-
-    if args.length>0
-      while (option = args.shift())?
-        switch option
-
-          when '-t', '--template'     then variables.template     = args.shift()
-          when '-l', '--license'      then variables.license      = args.shift()
-          when '-a', '--author'       then variables.author       = args.shift()
-          when '-c', '--copyright'    then variables.copyright    = args.shift()
-          when '-w', '--webpage'      then variables.homepage     = args.shift()
-          when '-d', '--description'  then variables.description  = args.shift()
-
-          else throw "ERR: Invalid option #{option}"
+    variables = util.merge(args, variables)
 
     liquidInitialization exports
     newpath = path.resolve(process.cwd(), variables.libname)

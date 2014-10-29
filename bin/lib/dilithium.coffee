@@ -19,3 +19,7 @@ Object.defineProperties module.exports,
   create: # create a new project
     get: ->
       require('./create.coffee').run
+
+  set: # set dilithium valies
+    get: ->
+      require('./set.coffee').run
