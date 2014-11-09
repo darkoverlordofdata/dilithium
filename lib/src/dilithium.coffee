@@ -95,7 +95,7 @@ class li2.Dilithium extends Phaser.State
     #
     # load the main config file
     #
-    httpConfig.open 'GET', "#{path}/config.yaml", false
+    httpConfig.open 'GET', "#{path}/config.yaml", true
     httpConfig.send()
     return
 
