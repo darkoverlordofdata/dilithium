@@ -1,4 +1,4 @@
-/*
+###
            ___ ___ __  __    _
       ____/ (_) (_) /_/ /_  (_)_  ______ ___
      / __  / / / / __/ __ \/ / / / / __ `__ \
@@ -26,21 +26,13 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
+###
 
-library dilithium;
-
-import 'dart:html';
-import 'dart:js';
-import 'dart:async' as async;
-
-import 'package:yaml/yaml.dart';
-import 'package:play_phaser/phaser.dart' as Phaser;
-
-part 'src/dilithium.dart';
-part 'src/li2_assets.dart';
-part 'src/li2_boot.dart';
-part 'src/li2_button.dart';
-part 'src/li2_config.dart';
-part 'src/li2_state.dart';
-part 'src/li2_template.dart';
+require './src/dilithium'
+require './src/li2_assets'
+require './src/li2_boot'
+require './src/li2_button'
+require './src/li2_boot'
+require './src/li2_config'
+require './src/li2_state'
+require './src/li2_template'

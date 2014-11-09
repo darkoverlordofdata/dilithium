@@ -55,6 +55,7 @@ class Li2Config {
   var strings = {};
   var arrays = {};
   var preferences = {};
+  var extra = {};
 
   String source;
 //  var device;
@@ -96,6 +97,7 @@ class Li2Config {
       ..images = raw['images']
       ..sprites = raw['sprites']
       ..levels = raw['levels']
+      ..extra = raw['extra']
       ..strings = raw['strings'];
 
   }
