@@ -33,6 +33,7 @@ library dilithium;
 import 'dart:html';
 import 'dart:js';
 import 'dart:async' as async;
+import 'dart:math' as math;
 
 import 'package:yaml/yaml.dart';
 import 'package:play_phaser/phaser.dart' as Phaser;

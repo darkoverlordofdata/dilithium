@@ -26,6 +26,7 @@ class Li2Config {
   String assets = "Li2Assets";
   String menu = "Li2Menu";
   bool debug = false;
+  bool locale = false;
 
   int renderer = Phaser.CANVAS; // Force Canvas for Mobile
   int width = 320;
@@ -48,9 +49,12 @@ class Li2Config {
   String preloadBgdImg = '';
 
   var paths = {};
+  var sections = {};
+
   var audio = {};
   var images = {};
   var sprites = {};
+  var tilemaps = {};
   var levels = {};
   var strings = {};
   var arrays = {};
@@ -76,9 +80,18 @@ class Li2Config {
 
     var raw = loadYaml(source);
 
+
+    if (raw['boot'] != null)
+      this.boot = raw['boot'];
+    if (raw['assets'] != null)
+      this.assets = raw['assets'];
+    if (raw['menu'] != null)
+      this.menu = raw['menu'];
+
     this
       ..name = raw['name']
       ..paths = raw['paths']
+      ..locale = (raw['locale'] == 'true')
       ..minWidth = raw['minWidth']
       ..minHeight = raw['minHeight']
       ..maxWidth = raw['maxWidth']
@@ -93,46 +106,77 @@ class Li2Config {
       ..preloadBarImg = raw['preloadBarImg']
       ..preloadBgdKey = raw['preloadBgdKey']
       ..preloadBgdImg = raw['preloadBgdImg']
+      ..sections = raw['sections']
       ..audio = raw['audio']
       ..images = raw['images']
       ..sprites = raw['sprites']
+      ..tilemaps = raw['tilemaps']
       ..levels = raw['levels']
-      ..extra = raw['extra']
-      ..strings = raw['strings'];
+      ..strings = raw['strings']
+      ..strings = raw['arrays']
+      ..strings = raw['preferences']
+      ..extra = raw['extra'];
 
   }
 
   /**
-   * Load localized strings from res/values/strings.yaml
+   * Load optional config hives, such as from res/values/strings.yaml
    */
-  setStrings(String source) {
-    try {
-      strings = loadYaml(source);
-    } catch (e) {}
-  }
+  setSection(String name, String source) {
+    switch(name) {
+      case 'audio':
+        try {
+          audio = loadYaml(source);
+        } catch (e) {}
+        break;
+      case 'images':
+        try {
+          images = loadYaml(source);
+        } catch (e) {}
+        break;
+      case 'sprites':
+        try {
+          sprites = loadYaml(source);
+        } catch (e) {}
+        break;
+      case 'tilemaps':
+        try {
+          tilemaps = loadYaml(source);
+        } catch (e) {}
+        break;
+      case 'levels':
+        try {
+          levels = loadYaml(source);
+        } catch (e) {}
+        break;
+      case 'strings':
+        try {
+          strings = loadYaml(source);
+        } catch (e) {}
+        break;
+      case 'arrays':
+        try {
+          loadYaml(source).forEach((key, values) {
+            arrays[key] = new List();
+            for (var i=0; i<values.length; i++) {
+              String str = values[i];
+              arrays[key].add(xlate(values[i]));
+            }
+          });
+        } catch (e) {}
+        break;
+      case 'preferences':
+        try {
+          preferences = loadYaml(source);
+        } catch (e) {}
+        break;
+      case 'extra':
+        try {
+          extra = loadYaml(source);
+        } catch (e) {}
+        break;
 
-  /**
-   * Load preferences from res/preferences.yaml
-   */
-  setPreferences(String source) {
-    try {
-      preferences = loadYaml(source);
-    } catch (e) {}
-  }
-
-  /**
-   * Load arrays from res/values/arrays.yaml
-   */
-  setArrays(String source) {
-    try {
-      loadYaml(source).forEach((key, values) {
-        arrays[key] = new List();
-        for (var i=0; i<values.length; i++) {
-          String str = values[i];
-          arrays[key].add(xlate(values[i]));
-        }
-      });
-    } catch (e) {}
+    }
   }
 
   /**

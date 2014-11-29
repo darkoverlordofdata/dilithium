@@ -34,8 +34,10 @@ class lib.Li2Assets extends Phaser.State
 
     # display loading progress bar
     if @config.preloadBarKey isnt ''
-      preloadBgd = @add.sprite(@game.width / 2 - 250, @game.height - 100, @config.preloadBgdKey)
-      preloadBar = @add.sprite(@game.width / 2 - 250, @game.height - 100, @config.preloadBarKey)
+      preloadBgd = @add.sprite(160, 240, @config.preloadBgdKey)
+      preloadBgd.anchor.setTo(0.5, 0.5)
+      preloadBar = @add.sprite(160, 340, @config.preloadBarKey)
+      preloadBar.anchor.setTo(0.5, 0.5)
       @load.setPreloadSprite(preloadBar)
 
     # load audio assets

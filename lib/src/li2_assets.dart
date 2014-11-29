@@ -43,8 +43,10 @@ class Li2Assets extends Phaser.State {
 
     //  Progress bar?
     if (config.showPreloadBar) {
-      preloadBgd = add.sprite(game.width / 2 - 250, game.height - 100, config.preloadBgdKey);
-      preloadBar = add.sprite(game.width / 2 - 250, game.height - 100, config.preloadBarKey);
+      preloadBgd = add.sprite(160, 240, config.preloadBgdKey);
+      preloadBgd.anchor.setTo(0.5, 0.5);
+      preloadBar = add.sprite(160, 340, config.preloadBarKey);
+      preloadBar.anchor.setTo(0.5, 0.5);
       load.setPreloadSprite(preloadBar);
 
     }
@@ -60,8 +62,8 @@ class Li2Assets extends Phaser.State {
     }
 
     // load level tilesets
-    if (config.levels != null) {
-      config.levels.forEach((k, level) {
+    if (config.tilemaps != null) {
+      config.tilemaps.forEach((k, level) {
         var levelName = level['options']['map'];
         load.tilemap(levelName, config.path+"levels/$levelName.json", null, Phaser.Tilemap.TILED_JSON);
       });

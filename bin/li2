@@ -53,9 +53,9 @@ switch process.argv[2]
 
   when 'set'        then dilithium.set process.argv.slice(3)...
 
-  when '--version'  then console.log "li2 v"+require('../package.json').version
+  when '--version'  then console.log "Dilithium(Li2) v"+require('../package.json').version
 
-  when '-v'         then console.log "li2 v"+require('../package.json').version
+  when '-v'         then console.log "Dilithium(Li2) v"+require('../package.json').version
 
   when '--help'     then console.log $usage
 

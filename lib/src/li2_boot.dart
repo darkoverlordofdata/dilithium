@@ -35,10 +35,16 @@ class Li2Boot extends Phaser.State {
    */
   preload() {
 
-    load.image(config.splashKey, config.path+config.splashImg);
+    if (config.splashKey != null && config.splashImg != null)
+      load.image(config.splashKey, config.path+config.splashImg);
+
     if (config.showPreloadBar) {
-      load.image(config.preloadBarKey, config.path+config.preloadBarImg);
-      load.image(config.preloadBgdKey, config.path+config.preloadBgdImg);
+
+      if (config.preloadBarKey != null && config.preloadBarImg != null)
+        load.image(config.preloadBarKey, config.path+config.preloadBarImg);
+
+      if (config.preloadBgdKey != null && config.preloadBgdImg != null)
+        load.image(config.preloadBgdKey, config.path+config.preloadBgdImg);
     }
 
 

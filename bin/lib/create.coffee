@@ -18,7 +18,7 @@
 #
 fs = require('fs')
 path = require('path')
-Liquid = require('huginn-liquid')
+Liquid = require('liquid.coffee')
 util = require('./util')
 LocalFileSystem = require('./classes/LocalFileSystem')
 
@@ -26,6 +26,9 @@ LocalFileSystem = require('./classes/LocalFileSystem')
 # executable - list of file extension executables for plugins
 #
 executable = ['.coffee', '.js']
+
+sources = ['.html', '.xml', '.md', '.markdown', '.js', '.dart', '.coffee', '.yaml']
+variables = {}
 
 
 #
