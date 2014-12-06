@@ -151,7 +151,7 @@ abstract class Dilithium extends Phaser.State {
   Dilithium(Li2Config this.config) {
 
     print("Dilithium initialized");
-    game = new Phaser.Game(config.width, config.height, config.renderer, '', this);
+    game = new Phaser.Game(config.width, config.height, config.renderer, config.id, this);
 
   }
 

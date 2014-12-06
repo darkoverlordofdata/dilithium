@@ -111,8 +111,8 @@ class li2.Dilithium extends Phaser.State
   # returns this
   ###
   constructor:(@config) ->
-    console.log "Dilithium v0.2.0"
-    @game = new Phaser.Game(@config.width, @config.height, @config.renderer, '', this)
+    console.log "Dilithium initialized"
+    @game = new Phaser.Game(@config.width, @config.height, @config.renderer, @config.id, this)
 
   ###
   # Create the game states and start the game
