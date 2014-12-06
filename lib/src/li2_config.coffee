@@ -26,6 +26,7 @@ class lib.Li2Config
   menu: "Li2Menu"
   debug: false
 
+  id: ""
   renderer: Phaser.CANVAS # Force Canvas for Mobile
   width: 320
   height: 480
@@ -71,9 +72,16 @@ class lib.Li2Config
       @path += '/' unless @path[-1] is '/'
 
     raw = yaml.load(@source)
+
+    @boot = raw.boot if raw.boot?
+    @assets = raw.assets if raw.assets?
+    @menu = raw.menu if raw.menu?
+    @id = raw.id if raw.id?
     @locale = raw.locale
     @name = raw.name
     @sections = raw.sections
+    @width = raw.minWidth
+    @height = raw.minHeight
     @minWidth = raw.minWidth
     @minHeight = raw.minHeight
     @maxWidth = raw.maxWidth

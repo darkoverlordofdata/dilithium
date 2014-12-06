@@ -9,3 +9,7 @@
 * templating now uses liquid.coffee
 * fix preload progress display
 * check for CocoonJS
+### v0.2.4 - Nov 30, 2014
+* fix config.width, config.height
+### v0.2.5 - Dec 06, 2014
+* add config.id

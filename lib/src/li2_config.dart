@@ -28,6 +28,7 @@ class Li2Config {
   bool debug = false;
   bool locale = false;
 
+  String id = '';
   int renderer = Phaser.CANVAS; // Force Canvas for Mobile
   int width = 320;
   int height = 480;
@@ -88,10 +89,15 @@ class Li2Config {
     if (raw['menu'] != null)
       this.menu = raw['menu'];
 
+    if (raw['id'] != null)
+      this.id = raw['id'];
+
     this
       ..name = raw['name']
       ..paths = raw['paths']
       ..locale = (raw['locale'] == 'true')
+      ..width = raw['minWidth']
+      ..height = raw['minHeight']
       ..minWidth = raw['minWidth']
       ..minHeight = raw['minHeight']
       ..maxWidth = raw['maxWidth']
