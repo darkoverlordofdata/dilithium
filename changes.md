@@ -13,3 +13,11 @@
 * fix config.width, config.height
 ### v0.2.5 - Dec 06, 2014
 * add config.id
+### v0.3.1 - Dec 24, 2014
+* breaking changes:
+* remove Li2Button & Li2State - prefer composition, such as with Artemis
+* remove Li2* prefix - import using 'as'
+### v0.3.5 - Jan 18, 2015
+* adding config.orientation to take advantage of screen.orientation.lock()
+* add scaleMode to config
+* add config.transparent

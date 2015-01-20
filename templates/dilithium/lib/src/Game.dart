@@ -15,9 +15,9 @@
  */
 part of {{ project.libname }};
 
-class Game  extends Dilithium {
+class Game  extends Li2.Dilithium {
 
-  Li2Template template;
+  Li2.Template template;
 
   Game(config, this.template): super(config) {
   }
@@ -25,7 +25,7 @@ class Game  extends Dilithium {
   /**
    * Define each of the game states
    */
-  State levels() {
+  Phaser.State levels() {
     return new Menu(config);
 
   }

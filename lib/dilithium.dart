@@ -39,9 +39,7 @@ import 'package:yaml/yaml.dart';
 import 'package:play_phaser/phaser.dart' as Phaser;
 
 part 'src/dilithium.dart';
-part 'src/li2_assets.dart';
-part 'src/li2_boot.dart';
-part 'src/li2_button.dart';
-part 'src/li2_config.dart';
-part 'src/li2_state.dart';
-part 'src/li2_template.dart';
+part 'src/assets.dart';
+part 'src/boot.dart';
+part 'src/config.dart';
+part 'src/template.dart';

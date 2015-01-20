@@ -31,7 +31,7 @@ class Hive {
 abstract class Dilithium extends Phaser.State {
 
   String path;
-  Li2Config config;
+  Config config;
   Phaser.Game game;
 
   /**
@@ -65,7 +65,7 @@ abstract class Dilithium extends Phaser.State {
         /**
          * Main Config loaded
          */
-        Li2Config config = new Li2Config(httpConfig.responseText, path);
+        Config config = new Config(httpConfig.responseText, path);
         List hives = [];
 
         /**
@@ -128,7 +128,7 @@ abstract class Dilithium extends Phaser.State {
         /**
          * Nope, we got butkus
          */
-        Li2Config config = new Li2Config('', path);
+        Config config = new Config('', path);
         completer.complete(config);
 
       }
@@ -148,10 +148,17 @@ abstract class Dilithium extends Phaser.State {
    *
    * returns this
    */
-  Dilithium(Li2Config this.config) {
+  Dilithium(Config this.config) {
 
     print("Dilithium initialized");
-    game = new Phaser.Game(config.width, config.height, config.renderer, config.id, this);
+    if (config.orientation != null) {
+      try {
+        context['screen']['orientation'].callMethod('lock', [config.orientation]);
+      } catch (e) {}
+
+    }
+    print("new Phaser.Game(${config.width}, ${config.height}, ${config.renderer}, ${config.id}, this, ${config.transparent})");
+    game = new Phaser.Game(config.width, config.height, config.renderer, config.id, this, config.transparent);
 
   }
 
@@ -159,14 +166,14 @@ abstract class Dilithium extends Phaser.State {
    *
    */
   create() {
-    game.state.add(config.boot, new Li2Boot(this.config));
-    game.state.add(config.assets, new Li2Assets(this.config));
+    game.state.add(config.boot, new Boot(this.config));
+    game.state.add(config.assets, new Assets(this.config));
     game.state.add(config.menu, levels());
     game.state.start(config.boot);
 
   }
 
-  Li2State levels(); // override to define game states
+  Phaser.State levels(); // override to define game states
 
 }
 

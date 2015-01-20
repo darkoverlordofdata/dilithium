@@ -27,8 +27,8 @@ import 'dart:js';
 import 'dart:async' as async;
 
 import 'package:yaml/yaml.dart';
-import 'package:play_phaser/phaser.dart';
-import "package:dilithium/dilithium.dart";
+import 'package:play_phaser/phaser.dart' as Phaser;
+import 'package:dilithium/dilithium.dart' as Li2;
 
 part 'src/{{project.name}}Application.dart';
 part 'src/Game.dart';

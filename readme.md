@@ -6,12 +6,10 @@ Dart Library - use yaml to configure play_phaser assets.
 #### Dart Framework Classes
 
 * Dilithium     - Game application class
-* Li2Assets     - * load assets listed in config.yaml
-* Li2Boot       - * set device params, load splash screen
-* Li2Button     - Button+Text component
-* Li2Config     - ** Wraps the config.yaml
-* Li2State      - Add dilithium methods to the State class
-* Li2Template   - Wraps the embedded Liquid Template engine
+* Assets        - * load assets listed in config.yaml
+* Boot          - * set device params, load splash screen
+* Config        - ** Wraps the config.yaml
+* Template      - Wraps the embedded Liquid Template engine
 
     * = Auto invoked by dilithium
     ** = Populated by dilithium

@@ -36,7 +36,7 @@ class {{project.name}}Application {
    */
   void startGame(listener) {
 
-    Dilithium.using("packages/{{project.libname}}/res")
+    Li2.Dilithium.using("packages/{{project.libname}}/res")
     .then((config) {
 
 
@@ -46,7 +46,7 @@ class {{project.name}}Application {
 
         querySelector('#logo').style.display = 'none';
         querySelector('body').style.backgroundColor = 'black';
-        new Game(config, new Li2Template(template));
+        new Game(config, new Li2.Template(template));
       });
     });
 
