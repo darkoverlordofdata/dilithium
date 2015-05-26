@@ -28,11 +28,11 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ###
 
-require './../lib/src/dilithium'
-require './../lib/src/li2_assets'
-require './../lib/src/li2_boot'
-require './../lib/src/li2_button'
-require './../lib/src/li2_boot'
-require './../lib/src/li2_config'
-require './../lib/src/li2_state'
-require './../lib/src/li2_template'
+require './src/dilithium'
+require './src/li2_assets'
+require './src/li2_boot'
+require './src/li2_button'
+require './src/li2_boot'
+require './src/li2_config'
+require './src/li2_state'
+require './src/li2_template'

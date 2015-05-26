@@ -1,0 +1,24 @@
+{
+  "name": "dilithium",
+  "version": "0.2.7",
+  "authors": [
+    "darkoverlordofdata <darkoverlordofdata@gmail.com>"
+  ],
+  "description": "Asset Management for Phaser",
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "pub",
+    "bin",
+    "tmp",
+    "build",
+    "node_modules",
+    "packages",
+    "web/packages",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
