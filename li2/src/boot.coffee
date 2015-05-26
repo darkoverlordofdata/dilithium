@@ -1,5 +1,5 @@
 #+--------------------------------------------------------------------+
-#| Li2Boot.coffee
+#| boot.coffee
 #+--------------------------------------------------------------------+
 #| Copyright DarkOverlordOfData (c) 2014
 #+--------------------------------------------------------------------+
@@ -10,7 +10,6 @@
 #| it under the terms of the GPLv3 License
 #|
 #+--------------------------------------------------------------------+
-lib = require('../../lib')
 
 #
 # == Initialize ==
@@ -18,7 +17,7 @@ lib = require('../../lib')
 #   * Start loading the the splash screen image
 #   * Configure the game engine to the environment
 #
-class lib.Li2Boot extends Phaser.State
+li2.Boot = class Boot extends Phaser.State
 
   orientated: false
   config: {}

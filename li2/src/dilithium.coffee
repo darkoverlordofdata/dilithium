@@ -1,5 +1,5 @@
 #+--------------------------------------------------------------------+
-#| Dilithium.coffee
+#| dilithium.coffee
 #+--------------------------------------------------------------------+
 #| Copyright DarkOverlordOfData (c) 2014
 #+--------------------------------------------------------------------+
@@ -10,9 +10,7 @@
 #| it under the terms of the GPLv3 License
 #|
 #+--------------------------------------------------------------------+
-li2 = require('../../lib')
-
-class li2.Dilithium extends Phaser.State
+li2.Dilithium = class Dilithium extends Phaser.State
 
   config  : null
   game    : null
@@ -30,7 +28,7 @@ class li2.Dilithium extends Phaser.State
     httpConfig.onreadystatechange = ->
       if httpConfig.readyState is 4 and httpConfig.status is 200
 
-        config = new li2.Li2Config(httpConfig.responseText, path)
+        config = new Config(httpConfig.responseText, path)
         #
         # Extra Config Sections?
         #
@@ -88,7 +86,7 @@ class li2.Dilithium extends Phaser.State
 
         # no configuration file found,
         # start with default config values
-        config = new li2.Li2Config('', path)
+        config = new li2.Config('', path)
         complete(config)
         return
 
@@ -118,8 +116,8 @@ class li2.Dilithium extends Phaser.State
   # Create the game states and start the game
   ###
   create: ->
-    @game.state.add @config.boot,  new li2.Li2Boot(@config)
-    @game.state.add @config.assets,  new li2.Li2Assets(@config)
+    @game.state.add @config.boot, new li2.Boot(@config)
+    @game.state.add @config.assets, new li2.Assets(@config)
     @game.state.add @config.menu, @levels()
     @game.state.start @config.boot
 

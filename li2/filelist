@@ -1,8 +1,7 @@
-li2/src/dilithium
-li2/src/li2_assets
-li2/src/li2_boot
-li2/src/li2_button
-li2/src/li2_boot
-li2/src/li2_config
-li2/src/li2_state
-li2/src/li2_template
+li2/prolog.coffee
+li2/src/assets.coffee
+li2/src/boot.coffee
+li2/src/config.coffee
+li2/src/dilithium.coffee
+li2/src/template.coffee
+li2/epilog.coffee

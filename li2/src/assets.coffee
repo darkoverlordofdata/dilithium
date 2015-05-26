@@ -1,5 +1,5 @@
 #+--------------------------------------------------------------------+
-#| Li2Assets.coffee
+#| assets.coffee
 #+--------------------------------------------------------------------+
 #| Copyright DarkOverlordOfData (c) 2014
 #+--------------------------------------------------------------------+
@@ -10,33 +10,34 @@
 #| it under the terms of the GPLv3 License
 #|
 #+--------------------------------------------------------------------+
-lib = require('../../lib')
 
 #
 # Load the game assets
 #
 #
-class lib.Li2Assets extends Phaser.State
+li2.Assets = class Assets extends Phaser.State
 
-  splashScreen: null
+  preloadBar: null
+  preloadBgd: null
   config: {}
 
   # set the configuration
   constructor:(@config) ->
-#    console.log "Class Li2Assets initialized"
 
   # preload game assets
   preload: () ->
 
+    console.log "Class Assets initializing"
+
     # first, display the splash
-    if @config.splashKey isnt ''
+    if @config.showSplash
       @load.setPreloadSprite(@add.sprite(0, 0, @config.splashKey))
 
     # display loading progress bar
-    if @config.preloadBarKey isnt ''
-      preloadBgd = @add.sprite(160, 240, @config.preloadBgdKey)
+    if @config.showPreloadBar
+      preloadBgd = @add.sprite(config.width*0.5, config.height*0.5, @config.preloadBgdKey)
       preloadBgd.anchor.setTo(0.5, 0.5)
-      preloadBar = @add.sprite(160, 340, @config.preloadBarKey)
+      preloadBar = @add.sprite(config.width*0.5, config.height*0.75, @config.preloadBarKey)
       preloadBar.anchor.setTo(0.5, 0.5)
       @load.setPreloadSprite(preloadBar)
 

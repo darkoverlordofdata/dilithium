@@ -1,5 +1,5 @@
 #+--------------------------------------------------------------------+
-#| Li2State.coffee
+#| template.coffee
 #+--------------------------------------------------------------------+
 #| Copyright DarkOverlordOfData (c) 2014
 #+--------------------------------------------------------------------+
@@ -10,17 +10,25 @@
 #| it under the terms of the GPLv3 License
 #|
 #+--------------------------------------------------------------------+
-lib = require('../../lib')
-
 #
 # == Initialize ==
 #
 #   * Start loading the the splash screen image
 #   * Configure the game engine to the environment
 #
-class lib.Li2State extends Phaser.State
+li2.Template = class Template
 
-  addButton:(x, y, key, style, text, callback)->
-    button = new lib.Li2Button(@game, x, y, key, style, text, callback)
-    @add.group().add(button)
-    return button
+  template: ''
+  _template: null
+
+  constructor:(template) ->
+    parse template
+
+  parse:(template) ->
+    @template = template
+    @_template = Liquid.Template.parse(template)
+    return
+
+  render:(variables) ->
+    @_template.render(variables)
+
