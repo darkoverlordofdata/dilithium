@@ -208,7 +208,7 @@ li2.Boot = class Boot extends Phaser.State
 #|
 #+--------------------------------------------------------------------+
 
-lib.Config = class Config
+li2.Config = class Config
 
 
   DELIM_ARRAY = 'array/'

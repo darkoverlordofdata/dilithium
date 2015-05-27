@@ -181,7 +181,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
   })(Phaser.State);
 
-  lib.Config = Config = (function() {
+  li2.Config = Config = (function() {
     var DELIM_ARRAY, DELIM_STRING;
 
     DELIM_ARRAY = 'array/';
