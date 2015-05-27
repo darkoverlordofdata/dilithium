@@ -283,7 +283,7 @@ li2.Config = class Config
     unless @path.length is 0
       @path += '/' unless @path[-1] is '/'
 
-    raw = yaml.load(@source)
+    raw = YAML.parse(@source)
 
     @boot = raw.boot if raw.boot?
     @assets = raw.assets if raw.assets?

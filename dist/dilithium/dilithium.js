@@ -294,7 +294,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           this.path += '/';
         }
       }
-      raw = yaml.load(this.source);
+      raw = YAML.parse(this.source);
       if (raw.boot != null) {
         this.boot = raw.boot;
       }
