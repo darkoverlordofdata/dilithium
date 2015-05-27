@@ -10,6 +10,9 @@
   "ignore": [
     "**/.*",
     "pub",
+    "lib",
+    "templates",
+    "web"
     "bin",
     "tmp",
     "build",
