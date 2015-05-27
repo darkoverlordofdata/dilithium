@@ -41,7 +41,7 @@ li2 = {}
 #| This file is a part of dilithium
 #|
 #| dilithium is free software; you can copy, modify, and distribute
-#| it under the terms of the GPLv3 License
+#| it under the terms of the MIT License
 #|
 #+--------------------------------------------------------------------+
 
@@ -117,7 +117,7 @@ li2.Assets = class Assets extends Phaser.State
 #| This file is a part of dilithium
 #|
 #| dilithium is free software; you can copy, modify, and distribute
-#| it under the terms of the GPLv3 License
+#| it under the terms of the MIT License
 #|
 #+--------------------------------------------------------------------+
 
@@ -204,7 +204,7 @@ li2.Boot = class Boot extends Phaser.State
 #| This file is a part of dilithium
 #|
 #| dilithium is free software you can copy, modify, and distribute
-#| it under the terms of the GPLv3 License
+#| it under the terms of the MIT License
 #|
 #+--------------------------------------------------------------------+
 
@@ -359,7 +359,7 @@ li2.Config = class Config
 #| This file is a part of dilithium
 #|
 #| dilithium is free software; you can copy, modify, and distribute
-#| it under the terms of the GPLv3 License
+#| it under the terms of the MIT License
 #|
 #+--------------------------------------------------------------------+
 li2.Dilithium = class Dilithium extends Phaser.State
@@ -486,7 +486,7 @@ li2.Dilithium = class Dilithium extends Phaser.State
 #| This file is a part of dilithium
 #|
 #| dilithium is free software; you can copy, modify, and distribute
-#| it under the terms of the GPLv3 License
+#| it under the terms of the MIT License
 #|
 #+--------------------------------------------------------------------+
 #
