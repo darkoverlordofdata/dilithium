@@ -11,7 +11,7 @@
 #|
 #+--------------------------------------------------------------------+
 
-lib.Config = class Config
+li2.Config = class Config
 
 
   DELIM_ARRAY = 'array/'
