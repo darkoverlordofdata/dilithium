@@ -34,7 +34,8 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   'use strict';
   var Assets, Boot, Config, Dilithium, Template, li2,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   li2 = {};
 
@@ -278,6 +279,8 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       var raw;
       this.source = source;
       this.path = path != null ? path : '';
+      this.xlate = __bind(this.xlate, this);
+      this.setSection = __bind(this.setSection, this);
       this.paths = {};
       this.sections = {};
       this.audio = {};
@@ -347,7 +350,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       var e, key, str, values, _ref, _results;
       if (name === 'arrays') {
         try {
-          _ref = yaml.load(source);
+          _ref = YAML.parse(source);
           _results = [];
           for (key in _ref) {
             values = _ref[key];
@@ -368,7 +371,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         }
       } else {
         try {
-          return this[name] = yaml.load(source);
+          return this[name] = YAML.parse(source);
         } catch (_error) {
           e = _error;
         }

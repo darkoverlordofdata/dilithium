@@ -324,24 +324,24 @@ li2.Config = class Config
   ###
   # Load optional config sections, such as from res/values/strings.yaml
   ###
-  setSection: (name, source) ->
+  setSection: (name, source) =>
 
     if name is 'arrays'
       try
-        for key, values of yaml.load(source)
+        for key, values of YAML.parse(source)
           @arrays[key] = []
           for str in values
             @arrays[key].push @xlate(str)
       catch e
     else
       try
-        @[name] = yaml.load(source)
+        @[name] = YAML.parse(source)
       catch e
 
   ###
   # Translate string value
   ###
-  xlate:(value) ->
+  xlate:(value) =>
     if 'string' is typeof value
       if value.indexof(DELIM_STRING) is 0
         @strings[values.replace(DELIM_STRING, '')]
