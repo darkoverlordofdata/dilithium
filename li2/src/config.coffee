@@ -19,6 +19,7 @@ li2.Config = class Config
 
   path            : ""
   name            : "name"
+  title           : ''
   boot            : "__boot"
   assets          : "__assets"
   menu            : "__menu"
@@ -96,6 +97,7 @@ li2.Config = class Config
     @transparent = raw.transparent
     @locale = raw.locale
     @name = raw.name
+    @title = raw.title
     @paths = raw.paths
     @width = raw.minWidth
     @height = raw.minHeight
@@ -120,7 +122,8 @@ li2.Config = class Config
     @sprites = raw.sprites
     @tilemaps = raw.tilemaps
     @levels = raw.levels
-    @strings = raw.preferences
+    @strings = raw.strings
+    @preferences = raw.preferences
     @extra = raw.extra
 
 

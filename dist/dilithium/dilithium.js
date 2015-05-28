@@ -193,6 +193,8 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
     Config.prototype.name = "name";
 
+    Config.prototype.title = '';
+
     Config.prototype.boot = "__boot";
 
     Config.prototype.assets = "__assets";
@@ -314,6 +316,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       this.transparent = raw.transparent;
       this.locale = raw.locale;
       this.name = raw.name;
+      this.title = raw.title;
       this.paths = raw.paths;
       this.width = raw.minWidth;
       this.height = raw.minHeight;
@@ -337,7 +340,8 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       this.sprites = raw.sprites;
       this.tilemaps = raw.tilemaps;
       this.levels = raw.levels;
-      this.strings = raw.preferences;
+      this.strings = raw.strings;
+      this.preferences = raw.preferences;
       this.extra = raw.extra;
     }
 
