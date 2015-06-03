@@ -35,9 +35,9 @@ li2.Assets = class Assets extends Phaser.State
 
     # display loading progress bar
     if @config.showPreloadBar
-      preloadBgd = @add.sprite(config.width*0.5, config.height*0.5, @config.preloadBgdKey)
+      preloadBgd = @add.sprite(@config.width*0.5, @config.height*0.5, @config.preloadBgdKey)
       preloadBgd.anchor.setTo(0.5, 0.5)
-      preloadBar = @add.sprite(config.width*0.5, config.height*0.75, @config.preloadBarKey)
+      preloadBar = @add.sprite(@config.width*0.5, @config.height*0.75, @config.preloadBarKey)
       preloadBar.anchor.setTo(0.5, 0.5)
       @load.setPreloadSprite(preloadBar)
 

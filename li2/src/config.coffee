@@ -58,6 +58,7 @@ li2.Config = class Config
   tilemaps        : null
   levels          : null
   strings         : null
+  fonts           : null
   arrays          : null
   preferences     : null
   extra           : null
@@ -80,6 +81,7 @@ li2.Config = class Config
     @tilemaps = {}
     @levels = {}
     @strings = {}
+    @fonts = {}
     @arrays = {}
     @preferences = {}
     @extra = {}
@@ -123,6 +125,7 @@ li2.Config = class Config
     @tilemaps = raw.tilemaps
     @levels = raw.levels
     @strings = raw.strings
+    @fonts = raw.fonts
     @preferences = raw.preferences
     @extra = raw.extra
 

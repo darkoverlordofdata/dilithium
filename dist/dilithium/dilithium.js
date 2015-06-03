@@ -59,9 +59,9 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         this.load.setPreloadSprite(this.add.sprite(0, 0, this.config.splashKey));
       }
       if (this.config.showPreloadBar) {
-        preloadBgd = this.add.sprite(config.width * 0.5, config.height * 0.5, this.config.preloadBgdKey);
+        preloadBgd = this.add.sprite(this.config.width * 0.5, this.config.height * 0.5, this.config.preloadBgdKey);
         preloadBgd.anchor.setTo(0.5, 0.5);
-        preloadBar = this.add.sprite(config.width * 0.5, config.height * 0.75, this.config.preloadBarKey);
+        preloadBar = this.add.sprite(this.config.width * 0.5, this.config.height * 0.75, this.config.preloadBarKey);
         preloadBar.anchor.setTo(0.5, 0.5);
         this.load.setPreloadSprite(preloadBar);
       }
@@ -263,6 +263,8 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
     Config.prototype.strings = null;
 
+    Config.prototype.fonts = null;
+
     Config.prototype.arrays = null;
 
     Config.prototype.preferences = null;
@@ -291,6 +293,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       this.tilemaps = {};
       this.levels = {};
       this.strings = {};
+      this.fonts = {};
       this.arrays = {};
       this.preferences = {};
       this.extra = {};
@@ -341,6 +344,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       this.tilemaps = raw.tilemaps;
       this.levels = raw.levels;
       this.strings = raw.strings;
+      this.fonts = raw.fonts;
       this.preferences = raw.preferences;
       this.extra = raw.extra;
     }
